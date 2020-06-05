@@ -79,16 +79,16 @@ const SignIn = ({ history, refetch }) => {
                                 <ErrorItem error={error} />
                             </>
                         )}
-                        <Link to='/'>
+                        {/* <Link to='/'>
                             <ForgotButton>¿Olvidaste tu contraseña?(TODO)</ForgotButton>
-                        </Link>
+                        </Link> */}
                     </Form>
                     <SocialMediaContainer>
                         <GoogleImageContainer>
-                            <Image src={googleIcon} alt='Inicia sesión con Google' />
-                            <Link to='/'>
+                            {/* <Image src={googleIcon} alt='Inicia sesión con Google' /> */}
+                            {/* <Link to='/'>
                                 <TitleGoogleButton>Inicia sesión con Google(TODO)</TitleGoogleButton>
-                            </Link>
+                            </Link> */}
                         </GoogleImageContainer>
                     </SocialMediaContainer>
                     <RegistesContainer>
