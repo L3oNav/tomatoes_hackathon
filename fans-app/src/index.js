@@ -3,11 +3,15 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
+import { Provider } from "react-redux"
+import { store } from "./Redux/index"
+import ShowAllMovies from './Components/ShowAllMovies/index.js'
+
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+  <Provider store={store}>
+    <ShowAllMovies />
+  </Provider>,
   document.getElementById('root')
 );
 
