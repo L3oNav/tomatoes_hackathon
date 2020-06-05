@@ -7,7 +7,7 @@ import Card from '../Components/Card'
 import styled from 'styled-components'
 import withAuth from '../routes/withAuth'
 
-const Blogs = () => {
+const Sagas = () => {
     // if (blog == null) return null
     return (
         <>
@@ -65,4 +65,4 @@ const CardsContainer = styled.div`
     flex-wrap: wrap;
 `
 
-export default withAuth((session) => session && session.getCurrentUser)(Blogs)
+export default withAuth((session) => session && session.getCurrentUser)(Sagas)
