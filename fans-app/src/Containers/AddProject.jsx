@@ -1,6 +1,6 @@
 import React from 'react'
-import AddProjectForm from '../components/AddProjectForm'
-import Footer from '../components/Footer'
+import AddProjectForm from '../Components/AddProjectForm'
+import Footer from '../Components/Footer'
 import styled from 'styled-components'
 import withAuth from '../routes/withAuth'
 

@@ -12,8 +12,8 @@ import React, { useState } from 'react'
 import { useQuery } from 'react-apollo'
 import styled from 'styled-components'
 import userIcon from '../assets/static/person-circle-outline.svg'
-import CustomInput from '../components/CustomInput'
-import Footer from '../components/Footer'
+import CustomInput from '../Components/CustomInput'
+import Footer from '../Components/Footer'
 import { GET_USER } from '../queries/index'
 import withAuth from '../routes/withAuth'
 function TabPanel(props) {
@@ -164,16 +164,11 @@ const Profile = ({ session }) => {
                                                 ? `${university.substr(0, 32)}...`
                                                 : university.substr(0, 35)}
                                         </Typography>
-                                        <Typography variant='subtitle2'>
-                                            {experience} EXP
-                                        </Typography>
+                                        <Typography variant='subtitle2'>{experience} EXP</Typography>
                                     </TypoDiv>
                                     <TypoDiv>
                                         <Button variant='contained'>Subir Imagen (TODO)</Button>
-                                        <Button
-                                            variant='contained'
-                                            className={classes.deleteImageButton}
-                                        >
+                                        <Button variant='contained' className={classes.deleteImageButton}>
                                             Eliminar Imagen (TODO)
                                         </Button>
                                     </TypoDiv>
@@ -182,11 +177,7 @@ const Profile = ({ session }) => {
                             <Grid item sm={8} xs={12}>
                                 <Paper className={classes.saveProfilePaper}>
                                     {` `}
-                                    <form
-                                        className={classes.formTextField}
-                                        noValidate
-                                        autoComplete='off'
-                                    >
+                                    <form className={classes.formTextField} noValidate autoComplete='off'>
                                         <InputContainer>
                                             <CustomInput
                                                 name={'name'}
@@ -229,10 +220,7 @@ const Profile = ({ session }) => {
                                                 title={'Universidad'}
                                             />
                                         </InputContainer>
-                                        <Button
-                                            variant='contained'
-                                            className={classes.saveButtonProfile}
-                                        >
+                                        <Button variant='contained' className={classes.saveButtonProfile}>
                                             Guardar Cambios (TODO)
                                         </Button>
                                     </form>

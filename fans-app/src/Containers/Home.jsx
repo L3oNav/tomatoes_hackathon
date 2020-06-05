@@ -1,5 +1,5 @@
 import React from 'react'
-import Footer from '../components/Footer'
+import Footer from '../Components/Footer'
 import homeLogo from '../assets/static/MHmexico.png'
 import styled from 'styled-components'
 
@@ -10,8 +10,8 @@ const Home = () => {
                 <Image src={homeLogo} alt='Logo' />
                 <Title>¿Tienes una idea brillante en el mundo de la biomédicina?</Title>
                 <SubTitle>
-                    Encontrarás blogs de proyectos con nuevas técnicas en computación en conjunto
-                    con electrónica para generar soluciones en México y el mundo.
+                    Encontrarás blogs de proyectos con nuevas técnicas en computación en conjunto con electrónica para
+                    generar soluciones en México y el mundo.
                 </SubTitle>
                 <Footer />
             </Container>
