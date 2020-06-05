@@ -24,9 +24,7 @@ const Sagas = () => {
                     <Link key={0} to={`/blogs/`}>
                         <Card
                             title={'Harry Potter'}
-                            img={
-                                'http://4everstatic.com/imagenes/850xX/arte/cine-y-series/harry-potter,-logo-172208.jpg'
-                            }
+                            img={'https://i.pinimg.com/originals/d2/f4/c1/d2f4c1d25c462f750e8a8e0d2c67a6e5.jpg'}
                         />
                     </Link>
                     <Link key={0} to={`/blogs/`}>
