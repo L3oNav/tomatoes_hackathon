@@ -119,7 +119,7 @@ const Title = styled.h2`
 `
 
 const LogButton = mStyled(Button)({
-    background: 'linear-gradient(45deg, #555 30%, #777 90%)',
+    background: 'linear-gradient(45deg, #162447 30%, #1f4068 90%)',
     textDecorationColor: 'white',
     fontSize: 16,
     fontWeight: 'bold',
@@ -135,7 +135,7 @@ const LogButton = mStyled(Button)({
 })
 
 const Section = styled.section`
-    background-color: #232323;
+    background-color: #162447;
     display: flex;
     align-items: center;
     flex-direction: column;

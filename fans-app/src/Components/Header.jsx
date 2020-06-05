@@ -4,22 +4,14 @@ import { fade, makeStyles, styled as mStyled } from '@material-ui/core/styles'
 import React from 'react'
 import { NavLink } from 'react-router-dom'
 import styled from 'styled-components'
-import logomh from '../assets/static/MH.png'
+import logomh from '../assets/static/fans.svg'
 import userIcon from '../assets/static/person-circle-outline.svg'
 import '../assets/styles/components/Header.scss'
 import LogOut from './LogOut'
 import SearchDrawer from './SearchDrawer'
 
 const Header = ({ session }) => {
-    return (
-        <nav>
-            {session && session.getCurrentUser ? (
-                <HeaderAuth session={session} />
-            ) : (
-                <HeaderUnAuth />
-            )}
-        </nav>
-    )
+    return <nav>{session && session.getCurrentUser ? <HeaderAuth session={session} /> : <HeaderUnAuth />}</nav>
 }
 
 const HeaderAuth = ({ session }) => {
@@ -157,7 +149,7 @@ const HeaderUsername = styled.p`
 `
 
 const LogButton = mStyled(Button)({
-    background: 'linear-gradient(45deg, #444 30%, #666 90%)',
+    background: 'linear-gradient(45deg, #162447 30%, #1f4068 90%)',
     textDecorationColor: 'white',
     borderRadius: 3,
     border: 0,
