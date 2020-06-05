@@ -7,7 +7,6 @@ const Home = () => {
     return (
         <>
             <Container>
-                {/* <Image src={homeLogo} alt='Logo' /> */}
                 <Title>Bienvenido a la mejor página para ver rankeadas las mejores sagas</Title>
                 <SubTitle>Encontrarás las mejores sagas con las reacciones de los mejores críticos del cine</SubTitle>
             </Container>

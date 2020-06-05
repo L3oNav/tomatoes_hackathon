@@ -5,7 +5,7 @@ import React, { useState } from 'react'
 import { useMutation } from 'react-apollo'
 import { Link, withRouter } from 'react-router-dom'
 import styled from 'styled-components'
-import googleIcon from '../assets/static/google-icon.png'
+// import googleIcon from '../assets/static/google-icon.png'
 import CustomInput from '../Components/CustomInput'
 import ErrorItem from '../Components/ErrorItem'
 import Footer from '../Components/Footer'
@@ -104,14 +104,14 @@ const SignIn = ({ history, refetch }) => {
     )
 }
 
-const ForgotButton = mStyled(Button)({
-    border: 0,
-    borderRadius: 3,
-    color: 'white',
-    height: 48,
-    padding: '0 30px',
-    textTransform: 'capitalize',
-})
+// const ForgotButton = mStyled(Button)({
+//     border: 0,
+//     borderRadius: 3,
+//     color: 'white',
+//     height: 48,
+//     padding: '0 30px',
+//     textTransform: 'capitalize',
+// })
 
 const Title = styled.h2`
     color: white;
@@ -163,14 +163,14 @@ const Form = styled.form`
     align-items: center;
 `
 
-const TitleGoogleButton = mStyled(Button)({
-    border: 0,
-    borderRadius: 3,
-    color: 'white',
-    height: 48,
-    padding: '0 30px',
-    textTransform: 'capitalize',
-})
+// const TitleGoogleButton = mStyled(Button)({
+//     border: 0,
+//     borderRadius: 3,
+//     color: 'white',
+//     height: 48,
+//     padding: '0 30px',
+//     textTransform: 'capitalize',
+// })
 
 const TitleRegisterButton = mStyled(Button)({
     border: 0,
@@ -189,10 +189,10 @@ const SocialMediaContainer = styled.section`
     margin-bottom: 20px;
 `
 
-const Image = styled.img`
-    margin-right: 10px;
-    width: 30px;
-`
+// const Image = styled.img`
+//     margin-right: 10px;
+//     width: 30px;
+// `
 
 const RegistesContainer = styled.div`
     display: flex;
