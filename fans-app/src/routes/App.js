@@ -13,13 +13,14 @@ import Projects from '../Containers/Projects'
 import SignIn from '../Containers/SignIn'
 import SignUp from '../Containers/SignUp'
 import withSession from './withSession'
-
+import MovieDetailsContainer from '../Containers/MovieDetailsContainer/index'
 function Root({ refetch, session }) {
     return (
         <BrowserRouter>
             <Header session={session} />
             <Switch>
                 <Route exact path='/' component={Home} />
+                <Route exact path='/movie/:id' component={MovieDetailsContainer} />
                 <Route path='/project/add' render={() => <AddProject session={session} />} />
                 <Route path='/projects/:_id' render={() => <Project session={session} />} />
                 <Route path='/projects' component={Projects} />

@@ -2,16 +2,13 @@ import React from 'react'
 import Footer from '../Components/Footer'
 // import homeLogo from '../assets/static/MHmexico.png'
 import styled from 'styled-components'
+import DiscoverMovies from '../Components/discoverMovies/index'
 
 const Home = () => {
     return (
-        <>
-            <Container>
-                <Title>Bienvenido a la mejor página para ver rankeadas las mejores sagas</Title>
-                <SubTitle>Encontrarás las mejores sagas con las reacciones de los mejores críticos del cine</SubTitle>
-            </Container>
-            <Footer />
-        </>
+        <Container>
+            <DiscoverMovies/>
+        </Container>
     )
 }
 

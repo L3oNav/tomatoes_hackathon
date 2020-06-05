@@ -7,7 +7,7 @@ import './assets/styles/index.scss'
 import App from './routes/App'
 import ApolloClient from 'apollo-boost'
 import { ApolloProvider } from 'react-apollo'
-
+import Root from './routes/App'
 const serverUri =
     process.env.NODE_ENV === 'development'
         ? 'http://localhost:3500/graphql'
@@ -38,8 +38,10 @@ const client = new ApolloClient({
 })
 
 ReactDOM.render(
-  <Provider store={store}>
-    <DiscoverMovies/>
-  </Provider>,
+  <ApolloProvider client={client}>
+    <Provider store={store}>
+        <Root/>
+    </Provider>
+  </ApolloProvider>,
   document.getElementById('root')
 );

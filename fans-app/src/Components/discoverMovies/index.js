@@ -2,6 +2,13 @@ import React, { Component } from 'react'
 import { discoverMoviesAction } from '../../Redux/Actions/movies'
 import { connect } from 'react-redux'
 import { Poster } from '../Poster/index'
+import styled from 'styled-components'
+
+const ListMovies = styled.div`
+  display: grid;
+  grid-template-columns: repeat(4, auto);
+  justify-content: space-evenly;
+`
 
 class DiscoverMovies extends Component {
   constructor(props){
@@ -26,9 +33,9 @@ class DiscoverMovies extends Component {
     if (this.props.movies){
       const movies = this.getMoviesHandler()
       return(
-        <div>
-          {movies? movies.map(movie => <Poster key={movie.id} info={true} path={movie.poster_path} title={movie.title} voteAverage={movie.vote_average} release_date={movie.release_date}/>): null}
-        </div>
+        <ListMovies>
+          {movies? movies.map(movie => <Poster key={movie.id} id={movie.id} info={true} path={movie.poster_path} title={movie.title} voteAverage={movie.vote_average} release_date={movie.release_date}/>): null}
+        </ListMovies>
       )
     } else {
       return 'Loading...'
