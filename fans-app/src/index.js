@@ -5,12 +5,12 @@ import App from './App';
 import * as serviceWorker from './serviceWorker';
 import { Provider } from "react-redux"
 import { store } from "./Redux/index"
-import ShowAllMovies from './Components/ShowAllMovies/index.js'
+import DiscoverMovies from './Components/discoverMovies/index.js'
 
 
 ReactDOM.render(
   <Provider store={store}>
-    <ShowAllMovies />
+    <DiscoverMovies/>
   </Provider>,
   document.getElementById('root')
 );
