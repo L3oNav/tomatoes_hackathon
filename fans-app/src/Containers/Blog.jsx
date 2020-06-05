@@ -6,9 +6,9 @@ import EditIcon from '@material-ui/icons/Edit'
 import React, { useState } from 'react'
 import { Mutation, useQuery } from 'react-apollo'
 import { useHistory, withRouter } from 'react-router-dom'
-import BlogBody from '../components/BlogBody'
-import EditFormModal from '../components/EditFormModal'
-import Footer from '../components/Footer'
+import BlogBody from '../Components/BlogBody'
+import EditFormModal from '../Components/EditFormModal'
+import Footer from '../Components/Footer'
 import { DELETE_USER_BLOG, GET_BLOG, GET_BLOGS_NAMES, GET_CURRENT_USER } from '../queries/index'
 import withAuth from '../routes/withAuth'
 
@@ -118,10 +118,7 @@ const Blog = ({ match, session }) => {
                             <Mutation
                                 mutation={DELETE_USER_BLOG}
                                 variables={{ _id }}
-                                refetchQueries={() => [
-                                    { query: GET_BLOGS_NAMES },
-                                    { query: GET_CURRENT_USER },
-                                ]}
+                                refetchQueries={() => [{ query: GET_BLOGS_NAMES }, { query: GET_CURRENT_USER }]}
                                 update={(cache, { data: { deleteUserBlog } }) => {
                                     const { getSortedBlogs } = cache.readQuery({
                                         query: GET_BLOGS_NAMES,
@@ -133,7 +130,7 @@ const Blog = ({ match, session }) => {
                                         variables: { developers },
                                         data: {
                                             getSortedBlogs: getSortedBlogs.filter(
-                                                (blog) => blog.id !== deleteUserBlog.id,
+                                                (blog) => blog.id !== deleteUserBlog.id
                                             ),
                                         },
                                     })

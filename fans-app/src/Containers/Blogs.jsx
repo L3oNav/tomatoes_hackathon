@@ -4,8 +4,8 @@ import { Link } from 'react-router-dom'
 import { useQuery } from 'react-apollo'
 import { GET_BLOGS_NAMES } from '../queries/index'
 
-import Footer from '../components/Footer'
-import Card from '../components/Card'
+import Footer from '../Components/Footer'
+import Card from '../Components/Card'
 
 import styled from 'styled-components'
 import { makeStyles } from '@material-ui/core/styles'
@@ -62,9 +62,7 @@ const Blogs = () => {
                     <Link key={0} to={`/blog/add`}>
                         <Card
                             title={'Add Blog'}
-                            img={
-                                'https://cdn2.iconfinder.com/data/icons/transparent-round-icons/512/add.png'
-                            }
+                            img={'https://cdn2.iconfinder.com/data/icons/transparent-round-icons/512/add.png'}
                         />
                     </Link>
                 </CardsContainer>

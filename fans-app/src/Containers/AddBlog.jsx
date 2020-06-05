@@ -1,6 +1,6 @@
 import React from 'react'
-import AddBlogForm from '../components/AddBlogForm'
-import Footer from '../components/Footer'
+import AddBlogForm from '../Components/AddBlogForm'
+import Footer from '../Components/Footer'
 import styled from 'styled-components'
 import withAuth from '../routes/withAuth'
 

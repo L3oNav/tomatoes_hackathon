@@ -6,9 +6,9 @@ import EditIcon from '@material-ui/icons/Edit'
 import React, { Fragment, useState } from 'react'
 import { Mutation, useQuery } from 'react-apollo'
 import { useHistory, withRouter } from 'react-router-dom'
-import Footer from '../components/Footer'
-import ProjectBody from '../components/ProjectBody'
-import EditFormModal from '../components/EditFormModal'
+import Footer from '../Components/Footer'
+import ProjectBody from '../Components/ProjectBody'
+import EditFormModal from '../Components/EditFormModal'
 import {
     DELETE_USER_PROJECT,
     GET_PROJECT,
@@ -155,10 +155,7 @@ const Project = ({ match, session }) => {
                             <Mutation
                                 mutation={DELETE_USER_PROJECT}
                                 variables={{ _id }}
-                                refetchQueries={() => [
-                                    { query: GET_PROJECTS_NAMES },
-                                    { query: GET_CURRENT_USER },
-                                ]}
+                                refetchQueries={() => [{ query: GET_PROJECTS_NAMES }, { query: GET_CURRENT_USER }]}
                                 update={(cache, { data: { deleteUserProject } }) => {
                                     const { getSortedProjects } = cache.readQuery({
                                         query: GET_PROJECTS_NAMES,
@@ -170,7 +167,7 @@ const Project = ({ match, session }) => {
                                         variables: { developers },
                                         data: {
                                             getSortedProjects: getSortedProjects.filter(
-                                                (project) => project.id !== deleteUserProject.id,
+                                                (project) => project.id !== deleteUserProject.id
                                             ),
                                         },
                                     })
@@ -210,9 +207,7 @@ const Project = ({ match, session }) => {
                                         color='secondary'
                                         aria-label='edit'
                                         className={classes.fabUnroll}
-                                        onClick={() =>
-                                            handleEnroll(updateDevelopersProject, 'unroll')
-                                        }
+                                        onClick={() => handleEnroll(updateDevelopersProject, 'unroll')}
                                     >
                                         Desenrolarse
                                     </Fab>

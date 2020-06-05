@@ -6,9 +6,9 @@ import { useMutation } from 'react-apollo'
 import { Link, withRouter } from 'react-router-dom'
 import styled from 'styled-components'
 import googleIcon from '../assets/static/google-icon.png'
-import CustomInput from '../components/CustomInput'
-import ErrorItem from '../components/ErrorItem'
-import Footer from '../components/Footer'
+import CustomInput from '../Components/CustomInput'
+import ErrorItem from '../Components/ErrorItem'
+import Footer from '../Components/Footer'
 import { SIGNIN_USER } from '../queries'
 
 const SignIn = ({ history, refetch }) => {
@@ -87,9 +87,7 @@ const SignIn = ({ history, refetch }) => {
                         <GoogleImageContainer>
                             <Image src={googleIcon} alt='Inicia sesión con Google' />
                             <Link to='/'>
-                                <TitleGoogleButton>
-                                    Inicia sesión con Google(TODO)
-                                </TitleGoogleButton>
+                                <TitleGoogleButton>Inicia sesión con Google(TODO)</TitleGoogleButton>
                             </Link>
                         </GoogleImageContainer>
                     </SocialMediaContainer>

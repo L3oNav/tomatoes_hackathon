@@ -5,9 +5,9 @@ import React, { useState } from 'react'
 import { useMutation } from 'react-apollo'
 import { Link, withRouter } from 'react-router-dom'
 import styled from 'styled-components'
-import CustomInput from '../components/CustomInput'
-import ErrorItem from '../components/ErrorItem'
-import Footer from '../components/Footer'
+import CustomInput from '../Components/CustomInput'
+import ErrorItem from '../Components/ErrorItem'
+import Footer from '../Components/Footer'
 import { SIGNUP_USER } from '../queries'
 
 const SignUp = ({ history, refetch }) => {
@@ -98,11 +98,9 @@ const SignUp = ({ history, refetch }) => {
         }
         if (!isPassword(password) || !isPassword(passwordConfirm)) {
             setErrorMessage(
-                'Contraseña no válida: al menos ocho carácteres, al menos una letra, al menos un número y un carácter especial',
+                'Contraseña no válida: al menos ocho carácteres, al menos una letra, al menos un número y un carácter especial'
             )
-            throw new Error(
-                'Not valid password: Minimum eight characters, at least one letter and one number',
-            )
+            throw new Error('Not valid password: Minimum eight characters, at least one letter and one number')
         }
         if (password !== passwordConfirm) {
             setErrorMessage('Las contraseñas no coinciden')
@@ -127,29 +125,15 @@ const SignUp = ({ history, refetch }) => {
             <Section>
                 <Container>
                     <Title>Registro</Title>
-                    <Form
-                        noValidate
-                        autoComplete='off'
-                        onSubmit={(event) => _handleSubmit(event, signUp)}
-                    >
-                        <CustomInput
-                            name={'name'}
-                            type={'text'}
-                            placeholder={'Nombre'}
-                            onChange={_handleInputChange}
-                        />
+                    <Form noValidate autoComplete='off' onSubmit={(event) => _handleSubmit(event, signUp)}>
+                        <CustomInput name={'name'} type={'text'} placeholder={'Nombre'} onChange={_handleInputChange} />
                         <CustomInput
                             name={'username'}
                             type={'text'}
                             placeholder={'Usuario'}
                             onChange={_handleInputChange}
                         />
-                        <CustomInput
-                            name={'email'}
-                            type={'text'}
-                            placeholder={'Email'}
-                            onChange={_handleInputChange}
-                        />
+                        <CustomInput name={'email'} type={'text'} placeholder={'Email'} onChange={_handleInputChange} />
                         <CustomInput
                             name={'password'}
                             type={'password'}
