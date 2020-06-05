@@ -148,15 +148,15 @@ const Profile = ({ session }) => {
                                             ? `${email.substr(0, 27)}...`
                                             : email.substr(0, 30)}
                                     </Typography>
-                                    <Typography variant='body2'>{id}</Typography>
+                                    {/* <Typography variant='body2'>{id}</Typography> */}
                                     <TypoDiv>
-                                        <Typography variant='body1'>
+                                        {/* <Typography variant='body1'>
                                             {specialty === null
                                                 ? setSpecialty('')
                                                 : specialty.length > 30
                                                 ? `${specialty.substr(0, 27)}...`
                                                 : specialty.substr(0, 30)}
-                                        </Typography>
+                                        </Typography> */}
                                         <Typography variant='h6'>
                                             {university === null
                                                 ? setUniversity('')
@@ -176,18 +176,18 @@ const Profile = ({ session }) => {
                                             <CustomInput
                                                 name={'name'}
                                                 type={'text'}
-                                                placeholder={'Nombre'}
+                                                placeholder={'Name'}
                                                 value={`${name}`}
                                                 onChange={_handleInputChange}
-                                                title={'Nombre'}
+                                                title={'Name'}
                                             />
                                             <CustomInput
                                                 name={'username'}
                                                 type={'text'}
-                                                placeholder={'Usuario'}
+                                                placeholder={'Username'}
                                                 value={`${username}`}
                                                 onChange={_handleInputChange}
-                                                title={'Usuario'}
+                                                title={'Username'}
                                             />
                                             <CustomInput
                                                 name={'email'}
@@ -197,21 +197,21 @@ const Profile = ({ session }) => {
                                                 onChange={_handleInputChange}
                                                 title={'Email'}
                                             />
-                                            <CustomInput
+                                            {/* {/* <CustomInput
                                                 name={'specialty'}
                                                 type={'text'}
                                                 placeholder={'Especialidad'}
                                                 value={`${specialty}`}
                                                 onChange={_handleInputChange}
                                                 title={'Especialidad'}
-                                            />
+                                            /> */}
                                             <CustomInput
                                                 name={'university'}
                                                 type={'text'}
-                                                placeholder={'Universidad'}
+                                                placeholder={'Favorite Movie'}
                                                 value={`${university}`}
                                                 onChange={_handleInputChange}
-                                                title={'Universidad'}
+                                                title={'Fav Movie'}
                                             />
                                         </InputContainer>
                                         <Button variant='contained' className={classes.saveButtonProfile}>
