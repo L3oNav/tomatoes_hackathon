@@ -244,7 +244,7 @@ const GoLoginButton = mStyled(Button)({
 
 const useStyles = makeStyles(() => ({
     root: {
-        background: '#232323',
+        background: '#1f4068',
         display: 'flex',
         flexDirection: 'column',
         justifyContent: 'center',
