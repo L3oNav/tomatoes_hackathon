@@ -11,7 +11,7 @@ import PropTypes from 'prop-types'
 import React, { useState } from 'react'
 import { useQuery } from 'react-apollo'
 import styled from 'styled-components'
-import userIcon from '../assets/static/person-circle-outline.svg'
+// import userIcon from '../assets/static/person-circle-outline.svg'
 import CustomInput from '../Components/CustomInput'
 import Footer from '../Components/Footer'
 import { GET_USER } from '../queries/index'
@@ -118,15 +118,15 @@ const Profile = ({ session }) => {
                             centered
                         >
                             <Tab label='Perfil' {...a11yProps(0)} />
-                            <Tab label='Est (TODO)' {...a11yProps(1)} />
-                            <Tab label='Sec (TODO)' {...a11yProps(2)} />
+                            {/* <Tab label='Est (TODO)' {...a11yProps(1)} />
+                            <Tab label='Sec (TODO)' {...a11yProps(2)} /> */}
                         </Tabs>
                     </Paper>
                     <TabPanel value={value} index={0}>
                         <Grid container spacing={3}>
                             <Grid item sm={4} xs={12}>
                                 <Paper className={classes.profilePaper}>
-                                    <ProfileImg src={userIcon} alt='' />
+                                    {/* <ProfileImg src={userIcon} alt='' /> */}
                                     <Typography variant='subtitle2'>
                                         {username === null
                                             ? setUsername('')
@@ -165,12 +165,6 @@ const Profile = ({ session }) => {
                                                 : university.substr(0, 35)}
                                         </Typography>
                                         <Typography variant='subtitle2'>{experience} EXP</Typography>
-                                    </TypoDiv>
-                                    <TypoDiv>
-                                        <Button variant='contained'>Subir Imagen (TODO)</Button>
-                                        <Button variant='contained' className={classes.deleteImageButton}>
-                                            Eliminar Imagen (TODO)
-                                        </Button>
                                     </TypoDiv>
                                 </Paper>
                             </Grid>
@@ -253,7 +247,7 @@ const Profile = ({ session }) => {
 }
 
 const Container = styled.div`
-    background-color: #232323;
+    background-color: #162447;
     min-height: 100vh;
 `
 
@@ -261,13 +255,13 @@ const InputContainer = styled.div`
     padding-top: 20px;
 `
 
-const ProfileImg = styled.img`
-    margin-top: 5%;
-    width: 100px;
-    border-radius: 100%;
-    object-fit: cover;
-    filter: invert(100%) sepia(0%) saturate(50%) hue-rotate(0deg) brightness(100%) contrast(80%);
-`
+// const ProfileImg = styled.img`
+//     margin-top: 5%;
+//     width: 100px;
+//     border-radius: 100%;
+//     object-fit: cover;
+//     filter: invert(100%) sepia(0%) saturate(50%) hue-rotate(0deg) brightness(100%) contrast(80%);
+// `
 
 const TypoDiv = styled.div`
     margin-top: 10px;
@@ -281,7 +275,7 @@ const useStyles = makeStyles((theme) => ({
         marginRight: '10%',
     },
     paper: {
-        backgroundColor: '#444',
+        backgroundColor: '#1f4068',
         textAlign: 'center',
         margin: 'auto',
         height: 420,
@@ -289,20 +283,22 @@ const useStyles = makeStyles((theme) => ({
     paperTabs: {
         marginBottom: 20,
         borderRadius: 3,
-        backgroundColor: '#333',
+        backgroundColor: '#1f4068',
         color: 'white',
         right: 0,
     },
     profilePaper: {
-        backgroundColor: '#444',
+        backgroundColor: '#1f4068',
         textAlign: 'center',
         alignItems: 'center',
         margin: 'auto',
         height: 'auto',
         color: 'white',
+        paddingTop: '20px',
+        paddingBottom: '20px',
     },
     saveProfilePaper: {
-        backgroundColor: '#444',
+        backgroundColor: '#1f4068',
         textAlign: 'center',
         alignItems: 'center',
         margin: 'auto',

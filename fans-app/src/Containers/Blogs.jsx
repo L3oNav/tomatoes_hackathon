@@ -72,7 +72,7 @@ const Blogs = () => {
     )
 }
 const Container = styled.div`
-    background-color: #232323;
+    background-color: #162447;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -92,7 +92,7 @@ const CardsContainer = styled.div`
 
 const useStyles = makeStyles(() => ({
     root: {
-        background: '#232323',
+        background: '#162447',
         display: 'flex',
         flexDirection: 'column',
         justifyContent: 'center',
