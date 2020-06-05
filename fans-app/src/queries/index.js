@@ -108,32 +108,14 @@ export const DELETE_USER_BLOG = gql`
     }
 `
 
-export const UPDATE_USER_BLOG = gql`
-    mutation(
-        $_id: ID!
-        $name: String!
-        $title: String!
-        $subtitle: String
-        $body: String!
-        $description: String!
-        $images: [String]
-    ) {
-        updateUserBlog(
-            _id: $_id
-            name: $name
-            title: $title
-            subtitle: $subtitle
-            body: $body
-            description: $description
-            images: $images
-        ) {
+export const UPDATE_USER = gql`
+    mutation($_id: ID!, $name: String!, $username: String!, $email: String!, $fav: String) {
+        updateUser(_id: $_id, name: $name, username: $username, email: $email, fav: $fav) {
             id
             name
-            title
-            subtitle
-            body
-            description
-            images
+            username
+            email
+            fav
         }
     }
 `
@@ -292,6 +274,7 @@ export const GET_USER = gql`
             university
             specialty
             experiencePoints
+            fav
         }
     }
 `

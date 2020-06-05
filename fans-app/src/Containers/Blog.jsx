@@ -17,6 +17,7 @@ const Blog = ({ match, session }) => {
     const history = useHistory()
 
     const { _id } = match.params
+    console.log('_id', _id)
     const [blog, setBlog] = useState({})
     const [developers, setDevelopers] = useState([])
     const [images, setImages] = useState([])
@@ -162,7 +163,7 @@ const Blog = ({ match, session }) => {
 
 const useStyles = makeStyles(() => ({
     root: {
-        background: '#232323',
+        background: '#1f4068',
         display: 'flex',
         flexDirection: 'column',
         justifyContent: 'center',
@@ -178,7 +179,7 @@ const useStyles = makeStyles(() => ({
         top: 100,
         right: 30,
         background: 'whitesmoke',
-        color: '#232323',
+        color: '#1f4068',
         zIndex: 10,
     },
     fabEdit: {
@@ -186,7 +187,7 @@ const useStyles = makeStyles(() => ({
         bottom: 30,
         right: 30,
         background: 'clear',
-        color: '#232323',
+        color: '#1f4068',
         zIndex: 10,
     },
     fabDelete: {
@@ -194,7 +195,7 @@ const useStyles = makeStyles(() => ({
         bottom: 80,
         right: 30,
         background: 'clear',
-        color: '#232323',
+        color: '#1f4068',
         zIndex: 10,
     },
 }))

@@ -9,12 +9,12 @@ import Tabs from '@material-ui/core/Tabs'
 import Typography from '@material-ui/core/Typography'
 import PropTypes from 'prop-types'
 import React, { useState } from 'react'
-import { useQuery } from 'react-apollo'
+import { useQuery, useMutation } from 'react-apollo'
 import styled from 'styled-components'
 // import userIcon from '../assets/static/person-circle-outline.svg'
 import CustomInput from '../Components/CustomInput'
 import Footer from '../Components/Footer'
-import { GET_USER } from '../queries/index'
+import { GET_USER, UPDATE_USER } from '../queries/index'
 import withAuth from '../routes/withAuth'
 function TabPanel(props) {
     const { children, value, index, ...other } = props
@@ -57,9 +57,9 @@ const Profile = ({ session }) => {
     const [name, setName] = useState('')
     const [username, setUsername] = useState('')
     const [email, setEmail] = useState('')
-    const [specialty, setSpecialty] = useState('')
     const [university, setUniversity] = useState('')
-    const [experience, setExperience] = useState('')
+    // const [experience, setExperience] = useState('')
+    const [fav, setFav] = useState('')
 
     const handleChange = (event, newValue) => {
         setValue(newValue)
@@ -73,10 +73,10 @@ const Profile = ({ session }) => {
             setUsername(value)
         } else if (name === 'email') {
             setEmail(value)
-        } else if (name === 'specialty') {
-            setSpecialty(value)
         } else if (name === 'university') {
             setUniversity(value)
+        } else if (name === 'fav') {
+            setFav(value)
         }
     }
 
@@ -91,14 +91,17 @@ const Profile = ({ session }) => {
                 setName(data[key].name)
                 setUsername(data[key].username)
                 setEmail(data[key].email)
-                setSpecialty(data[key].specialty)
                 setUniversity(data[key].university)
-                setExperience(data[key].experiencePoints)
+                setFav(data[key].fav)
             }
         },
     })
 
-    if (loading)
+    const [updateProfile, { loading: mutationLoading }] = useMutation(UPDATE_USER, {
+        variables: { _id: id, name, username, email, fav },
+    })
+
+    if (loading || mutationLoading)
         return (
             <div className={classes.circular}>
                 <CircularProgress className={classes.progress} />
@@ -118,8 +121,6 @@ const Profile = ({ session }) => {
                             centered
                         >
                             <Tab label='Perfil' {...a11yProps(0)} />
-                            {/* <Tab label='Est (TODO)' {...a11yProps(1)} />
-                            <Tab label='Sec (TODO)' {...a11yProps(2)} /> */}
                         </Tabs>
                     </Paper>
                     <TabPanel value={value} index={0}>
@@ -150,13 +151,6 @@ const Profile = ({ session }) => {
                                     </Typography>
                                     <Typography variant='body2'>{id}</Typography>
                                     <TypoDiv>
-                                        <Typography variant='body1'>
-                                            {specialty === null
-                                                ? setSpecialty('')
-                                                : specialty.length > 30
-                                                ? `${specialty.substr(0, 27)}...`
-                                                : specialty.substr(0, 30)}
-                                        </Typography>
                                         <Typography variant='h6'>
                                             {university === null
                                                 ? setUniversity('')
@@ -164,7 +158,13 @@ const Profile = ({ session }) => {
                                                 ? `${university.substr(0, 32)}...`
                                                 : university.substr(0, 35)}
                                         </Typography>
-                                        <Typography variant='subtitle2'>{experience} EXP</Typography>
+                                        <Typography variant='h6'>
+                                            {fav === null
+                                                ? setFav('')
+                                                : fav.length > 35
+                                                ? `${fav.substr(0, 32)}...`
+                                                : fav.substr(0, 35)}
+                                        </Typography>
                                     </TypoDiv>
                                 </Paper>
                             </Grid>
@@ -176,18 +176,18 @@ const Profile = ({ session }) => {
                                             <CustomInput
                                                 name={'name'}
                                                 type={'text'}
-                                                placeholder={'Nombre'}
+                                                placeholder={'Name'}
                                                 value={`${name}`}
                                                 onChange={_handleInputChange}
-                                                title={'Nombre'}
+                                                title={'Name'}
                                             />
                                             <CustomInput
                                                 name={'username'}
                                                 type={'text'}
-                                                placeholder={'Usuario'}
+                                                placeholder={'Username'}
                                                 value={`${username}`}
                                                 onChange={_handleInputChange}
-                                                title={'Usuario'}
+                                                title={'Username'}
                                             />
                                             <CustomInput
                                                 name={'email'}
@@ -198,24 +198,20 @@ const Profile = ({ session }) => {
                                                 title={'Email'}
                                             />
                                             <CustomInput
-                                                name={'specialty'}
+                                                name={'fav'}
                                                 type={'text'}
-                                                placeholder={'Especialidad'}
-                                                value={`${specialty}`}
+                                                placeholder={'Favorite Movie'}
+                                                value={`${fav}`}
                                                 onChange={_handleInputChange}
-                                                title={'Especialidad'}
-                                            />
-                                            <CustomInput
-                                                name={'university'}
-                                                type={'text'}
-                                                placeholder={'Universidad'}
-                                                value={`${university}`}
-                                                onChange={_handleInputChange}
-                                                title={'Universidad'}
+                                                title={'Fav Movie'}
                                             />
                                         </InputContainer>
-                                        <Button variant='contained' className={classes.saveButtonProfile}>
-                                            Guardar Cambios (TODO)
+                                        <Button
+                                            variant='contained'
+                                            className={classes.saveButtonProfile}
+                                            onClick={updateProfile}
+                                        >
+                                            Guardar Cambios
                                         </Button>
                                     </form>
                                 </Paper>

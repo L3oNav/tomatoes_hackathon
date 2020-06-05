@@ -1,12 +1,14 @@
 import Button from '@material-ui/core/Button'
 import CircularProgress from '@material-ui/core/CircularProgress'
 import { makeStyles, styled as mStyled } from '@material-ui/core/styles'
+import Snackbar from '@material-ui/core/Snackbar'
+import MuiAlert from '@material-ui/lab/Alert'
 import React, { useState } from 'react'
 import { useMutation } from 'react-apollo'
 import { Link, withRouter } from 'react-router-dom'
 import styled from 'styled-components'
 import CustomInput from '../Components/CustomInput'
-import ErrorItem from '../Components/ErrorItem'
+// import ErrorItem from '../Components/ErrorItem'
 import Footer from '../Components/Footer'
 import { SIGNUP_USER } from '../queries'
 
@@ -19,6 +21,20 @@ const SignUp = ({ history, refetch }) => {
     const [password, setPassword] = useState('')
     const [passwordConfirm, setPasswordConfirm] = useState('')
     const [errorMessage, setErrorMessage] = useState('')
+
+    function Alert(props) {
+        return <MuiAlert elevation={6} variant='filled' {...props} />
+    }
+
+    const [open, setOpen] = React.useState(false)
+
+    const handleClose = (event, reason) => {
+        if (reason === 'clickaway') {
+            return
+        }
+
+        setOpen(false)
+    }
 
     const clearState = () => {
         setName('')
@@ -86,30 +102,35 @@ const SignUp = ({ history, refetch }) => {
     const validateForm = () => {
         if (!isName(name)) {
             setErrorMessage('Nombre completo es requerido')
+            setOpen(true)
             throw new Error('Name is not defined')
         }
         if (!isUsername(username)) {
             setErrorMessage('Nopmbre de Usuario solo puede tener carácteres a-z, A-Z, - y _')
+            setOpen(true)
             throw new Error('Username is not defined')
         }
         if (!isEmail(email)) {
             setErrorMessage('Utiliza un email válido')
+            setOpen(true)
             throw new Error('Email is not defined')
         }
         if (!isPassword(password) || !isPassword(passwordConfirm)) {
             setErrorMessage(
                 'Contraseña no válida: al menos ocho carácteres, al menos una letra, al menos un número y un carácter especial'
             )
+            setOpen(true)
             throw new Error('Not valid password: Minimum eight characters, at least one letter and one number')
         }
         if (password !== passwordConfirm) {
             setErrorMessage('Las contraseñas no coinciden')
+            setOpen(true)
             throw new Error("Passwords doesn't match")
         }
     }
 
     // User SignUp Mutation
-    const [signUp, { loading, error }] = useMutation(SIGNUP_USER, {
+    const [signUp, { loading }] = useMutation(SIGNUP_USER, {
         variables: { name, username, email, password },
     })
 
@@ -147,12 +168,11 @@ const SignUp = ({ history, refetch }) => {
                             onChange={_handleInputChange}
                         />
                         <SignButton type='submit'>Registrar</SignButton>
-                        {error && (
-                            <>
-                                <ErrorItem error={error} />
-                            </>
-                        )}
-                        {errorMessage}
+                        <Snackbar open={open} autoHideDuration={2000} onClose={handleClose}>
+                            <Alert onClose={handleClose} severity='error'>
+                                {errorMessage}
+                            </Alert>
+                        </Snackbar>
                     </Form>
                     <Link to='/signin'>
                         <GoLoginButton>Iniciar Sesión</GoLoginButton>
@@ -224,7 +244,7 @@ const GoLoginButton = mStyled(Button)({
 
 const useStyles = makeStyles(() => ({
     root: {
-        background: '#232323',
+        background: '#1f4068',
         display: 'flex',
         flexDirection: 'column',
         justifyContent: 'center',
