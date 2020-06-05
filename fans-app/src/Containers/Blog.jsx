@@ -17,6 +17,7 @@ const Blog = ({ match, session }) => {
     const history = useHistory()
 
     const { _id } = match.params
+    console.log('_id', _id)
     const [blog, setBlog] = useState({})
     const [developers, setDevelopers] = useState([])
     const [images, setImages] = useState([])

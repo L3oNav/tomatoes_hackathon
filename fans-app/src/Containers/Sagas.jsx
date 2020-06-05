@@ -13,7 +13,7 @@ const Sagas = () => {
         <>
             <Container>
                 <CardsContainer>
-                    <Link key={0} to={`/blogs/`}>
+                    <Link key={0} to={`/sagas/23412341234234`}>
                         <Card
                             title={'Star Wars'}
                             img={
