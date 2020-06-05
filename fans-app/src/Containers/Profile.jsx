@@ -57,7 +57,6 @@ const Profile = ({ session }) => {
     const [name, setName] = useState('')
     const [username, setUsername] = useState('')
     const [email, setEmail] = useState('')
-    const [specialty, setSpecialty] = useState('')
     const [university, setUniversity] = useState('')
     const [experience, setExperience] = useState('')
 
@@ -73,8 +72,6 @@ const Profile = ({ session }) => {
             setUsername(value)
         } else if (name === 'email') {
             setEmail(value)
-        } else if (name === 'specialty') {
-            setSpecialty(value)
         } else if (name === 'university') {
             setUniversity(value)
         }
@@ -91,7 +88,6 @@ const Profile = ({ session }) => {
                 setName(data[key].name)
                 setUsername(data[key].username)
                 setEmail(data[key].email)
-                setSpecialty(data[key].specialty)
                 setUniversity(data[key].university)
                 setExperience(data[key].experiencePoints)
             }
@@ -148,7 +144,7 @@ const Profile = ({ session }) => {
                                             ? `${email.substr(0, 27)}...`
                                             : email.substr(0, 30)}
                                     </Typography>
-                                    {/* <Typography variant='body2'>{id}</Typography> */}
+                                    <Typography variant='body2'>{id}</Typography>
                                     <TypoDiv>
                                         {/* <Typography variant='body1'>
                                             {specialty === null
