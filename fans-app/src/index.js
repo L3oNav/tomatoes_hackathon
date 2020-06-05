@@ -7,7 +7,9 @@ import ApolloClient from 'apollo-boost'
 import { ApolloProvider } from 'react-apollo'
 
 const serverUri =
-    process.env.NODE_ENV === 'development' ? 'http://localhost:3500/graphql' : 'https://team-50-tomatoes-server.now.sh/'
+    process.env.NODE_ENV === 'development'
+        ? 'http://localhost:3500/graphql'
+        : 'https://team-50-tomatoes-server.now.sh/graphql'
 
 const client = new ApolloClient({
     uri: serverUri,
