@@ -34,7 +34,8 @@ class DiscoverMovies extends Component {
       const movies = this.getMoviesHandler()
       return(
         <ListMovies>
-          {movies? movies.map(movie => <Poster key={movie.id} id={movie.id} info={true} path={movie.poster_path} title={movie.title} voteAverage={movie.vote_average} release_date={movie.release_date}/>): null}
+	  {movies? movies.map(movie => <Poster key={movie.id} id={movie.id} info={true} path={movie.poster_path} 
+	    title={movie.title} voteAverage={movie.vote_average} release_date={movie.release_date}/>): null}
         </ListMovies>
       )
     } else {
