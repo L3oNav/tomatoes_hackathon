@@ -1,21 +1,12 @@
-<<<<<<< HEAD
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import * as serviceWorker from './serviceWorker';
 import { Provider } from "react-redux"
 import { store } from "./Redux/index"
 import DiscoverMovies from './Components/discoverMovies/index.js'
-=======
-import React from 'react'
-import ReactDOM from 'react-dom'
 import './assets/styles/index.scss'
 import App from './routes/App'
-import * as serviceWorker from './utils/serviceWorker'
 import ApolloClient from 'apollo-boost'
 import { ApolloProvider } from 'react-apollo'
->>>>>>> 0a43ee8dfeb487baa4325f74b8ce26c174c4c3c9
 
 const serverUri =
     process.env.NODE_ENV === 'development'
@@ -47,23 +38,8 @@ const client = new ApolloClient({
 })
 
 ReactDOM.render(
-<<<<<<< HEAD
   <Provider store={store}>
     <DiscoverMovies/>
   </Provider>,
   document.getElementById('root')
 );
-=======
-    <React.StrictMode>
-        <ApolloProvider client={client}>
-            <App />
-        </ApolloProvider>
-    </React.StrictMode>,
-    document.getElementById('root')
-)
->>>>>>> 0a43ee8dfeb487baa4325f74b8ce26c174c4c3c9
-
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
-serviceWorker.unregister()
