@@ -1,5 +1,5 @@
 import React from 'react'
-import { UPDATE_USER, UPDATE_USER_PROJECT } from '../queries/index'
+import { UPDATE_USER } from '../queries/index'
 import { Mutation } from 'react-apollo'
 import '../assets/styles/components/EditFormModal.scss'
 import styled from 'styled-components'
@@ -8,7 +8,7 @@ const EditFormModal = ({ handleSubmit, data, handleChange, closeModal }) => {
     console.log('data', data)
     return (
         <Mutation
-            mutation={data.type === 'blog' ? UPDATE_USER : UPDATE_USER_PROJECT}
+            mutation={UPDATE_USER}
             variables={{
                 _id: data._id,
                 name: data.name,

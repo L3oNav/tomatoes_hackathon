@@ -1,21 +1,58 @@
-import axios from 'axios'
-
 const initialState = {
-  loading: false,
-  error: false, 
-  movies: []
+    loading: false,
+    error: {
+        status: false,
+    },
+    movies: [],
+    movie: {},
 }
 
 export const moviesReducer = (state = initialState, action) => {
-    switch(action.type){
-      case "getMovies":
-	return {
-	  ...state,
-	  loading: false,
-	  error: '',
-	  movies: action.payload,
-	}
-      default:
-	return state;
+    switch (action.type) {
+        // MoviesList
+        case 'getMoviesLoading':
+            return {
+                ...state,
+                loading: true,
+                error: {
+                    status: false,
+                    message: '',
+                },
+                movies: [],
+            }
+        case 'getMoviesSuccess':
+            return {
+                ...state,
+                loading: false,
+                error: {
+                    status: false,
+                    message: '',
+                },
+                movies: action.payload,
+            }
+        // Movie Detail
+        case 'getMovieLoading':
+            return {
+                ...state,
+                loading: true,
+                error: { status: false, message: '' },
+                movie: [],
+            }
+        case 'getMovieError':
+            return {
+                ...state,
+                loading: false,
+                error: { status: false, message: action.payload },
+                movie: [],
+            }
+        case 'getMovieSuccess':
+            return {
+                ...state,
+                loading: false,
+                error: { status: false, message: '' },
+                movie: action.payload,
+            }
+        default:
+            return state
     }
 }

@@ -9,13 +9,14 @@ import Profile from '../Containers/Profile'
 import SignIn from '../Containers/SignIn'
 import SignUp from '../Containers/SignUp'
 import withSession from './withSession'
-
+import MovieDetailsContainer from '../Containers/MovieDetailsContainer/index'
 function Root({ refetch, session }) {
     return (
         <BrowserRouter>
             <Header session={session} />
             <Switch>
                 <Route exact path='/' component={Home} />
+                <Route exact path='/movie/:id' component={MovieDetailsContainer} />
                 <Route path='/sagas/:_id' render={() => <Blog session={session} />} />
                 <Route path='/sagas' component={Sagas} />
                 <Route path='/profile' render={() => <Profile session={session} />} />

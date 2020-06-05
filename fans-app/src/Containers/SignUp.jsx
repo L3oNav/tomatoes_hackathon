@@ -8,7 +8,6 @@ import { useMutation } from 'react-apollo'
 import { Link, withRouter } from 'react-router-dom'
 import styled from 'styled-components'
 import CustomInput from '../Components/CustomInput'
-// import ErrorItem from '../Components/ErrorItem'
 import Footer from '../Components/Footer'
 import { SIGNUP_USER } from '../queries'
 

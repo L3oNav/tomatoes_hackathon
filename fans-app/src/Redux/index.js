@@ -3,11 +3,11 @@ import { createStore, compose, applyMiddleware } from "redux";
 import thunk from "redux-thunk";
 
 //? Reducers
-import { reducers } from "./Reducers/index";
+import { moviesReducer } from "./Reducers/movies";
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 export const store = createStore(
-  reducers,
+  moviesReducer,
   {},
   composeEnhancers(applyMiddleware(thunk))
 )
