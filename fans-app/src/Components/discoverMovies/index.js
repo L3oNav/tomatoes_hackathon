@@ -5,9 +5,11 @@ import { Poster } from '../Poster/index'
 import styled from 'styled-components'
 
 const ListMovies = styled.div`
+  padding-top: 15px;
   display: grid;
   grid-template-columns: repeat(4, auto);
-  justify-content: space-evenly;
+  justify-content: center;
+  grid-gap: 15px;
 `
 
 class DiscoverMovies extends Component {
