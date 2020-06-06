@@ -1,10 +1,8 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import { Provider } from "react-redux"
-import { store } from "./Redux/index"
-import DiscoverMovies from './Components/discoverMovies/index.js'
+import React from 'react'
+import ReactDOM from 'react-dom'
+import { Provider } from 'react-redux'
+import { store } from './Redux/index'
 import './assets/styles/index.scss'
-import App from './routes/App'
 import ApolloClient from 'apollo-boost'
 import { ApolloProvider } from 'react-apollo'
 import Root from './routes/App'
@@ -38,10 +36,10 @@ const client = new ApolloClient({
 })
 
 ReactDOM.render(
-  <ApolloProvider client={client}>
-    <Provider store={store}>
-        <Root/>
-    </Provider>
-  </ApolloProvider>,
-  document.getElementById('root')
-);
+    <ApolloProvider client={client}>
+        <Provider store={store}>
+            <Root />
+        </Provider>
+    </ApolloProvider>,
+    document.getElementById('root')
+)

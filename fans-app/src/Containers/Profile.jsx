@@ -11,7 +11,7 @@ import PropTypes from 'prop-types'
 import React, { useState } from 'react'
 import { useQuery, useMutation } from 'react-apollo'
 import styled from 'styled-components'
-// import userIcon from '../assets/static/person-circle-outline.svg'
+import userIcon from '../assets/static/person-circle-outline.svg'
 import CustomInput from '../Components/CustomInput'
 import Footer from '../Components/Footer'
 import { GET_USER, UPDATE_USER } from '../queries/index'
@@ -57,7 +57,7 @@ const Profile = ({ session }) => {
     const [name, setName] = useState('')
     const [username, setUsername] = useState('')
     const [email, setEmail] = useState('')
-    const [university, setUniversity] = useState('')
+    // const [university, setUniversity] = useState('')
     // const [experience, setExperience] = useState('')
     const [fav, setFav] = useState('')
 
@@ -73,8 +73,8 @@ const Profile = ({ session }) => {
             setUsername(value)
         } else if (name === 'email') {
             setEmail(value)
-        } else if (name === 'university') {
-            setUniversity(value)
+            // } else if (name === 'university') {
+            //     setUniversity(value)
         } else if (name === 'fav') {
             setFav(value)
         }
@@ -91,7 +91,7 @@ const Profile = ({ session }) => {
                 setName(data[key].name)
                 setUsername(data[key].username)
                 setEmail(data[key].email)
-                setUniversity(data[key].university)
+                // setUniversity(data[key].university)
                 setFav(data[key].fav)
             }
         },
@@ -127,7 +127,7 @@ const Profile = ({ session }) => {
                         <Grid container spacing={3}>
                             <Grid item sm={4} xs={12}>
                                 <Paper className={classes.profilePaper}>
-                                    {/* <ProfileImg src={userIcon} alt='' /> */}
+                                    <ProfileImg src={userIcon} alt='' />
                                     <Typography variant='subtitle2'>
                                         {username === null
                                             ? setUsername('')
@@ -149,15 +149,8 @@ const Profile = ({ session }) => {
                                             ? `${email.substr(0, 27)}...`
                                             : email.substr(0, 30)}
                                     </Typography>
-                                    <Typography variant='body2'>{id}</Typography>
+                                    {/* <Typography variant='body2'>{id}</Typography> */}
                                     <TypoDiv>
-                                        <Typography variant='h6'>
-                                            {university === null
-                                                ? setUniversity('')
-                                                : university.length > 35
-                                                ? `${university.substr(0, 32)}...`
-                                                : university.substr(0, 35)}
-                                        </Typography>
                                         <Typography variant='h6'>
                                             {fav === null
                                                 ? setFav('')
@@ -251,13 +244,13 @@ const InputContainer = styled.div`
     padding-top: 20px;
 `
 
-// const ProfileImg = styled.img`
-//     margin-top: 5%;
-//     width: 100px;
-//     border-radius: 100%;
-//     object-fit: cover;
-//     filter: invert(100%) sepia(0%) saturate(50%) hue-rotate(0deg) brightness(100%) contrast(80%);
-// `
+const ProfileImg = styled.img`
+    margin-top: 5%;
+    width: 100px;
+    border-radius: 100%;
+    object-fit: cover;
+    filter: invert(100%) sepia(0%) saturate(50%) hue-rotate(0deg) brightness(100%) contrast(80%);
+`
 
 const TypoDiv = styled.div`
     margin-top: 10px;

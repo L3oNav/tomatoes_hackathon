@@ -13,7 +13,8 @@ import WorkIcon from '@material-ui/icons/Work'
 import React from 'react'
 import { ApolloConsumer } from 'react-apollo'
 import { Link } from 'react-router-dom'
-import { SEARCH_BLOGS, SEARCH_PROJECTS } from '../queries/index'
+// import { SEARCH_BLOGS, SEARCH_PROJECTS } from '../queries/index'
+import { SEARCH_BLOGS } from '../queries/index'
 
 const SearchDrawer = () => {
     const classes = useStyles()
@@ -54,32 +55,17 @@ const SearchDrawer = () => {
                                     query: SEARCH_BLOGS,
                                     variables: { searchTerm: event.target.value },
                                 })
-                                const { data: dataProjects } = await client.query({
-                                    query: SEARCH_PROJECTS,
-                                    variables: { searchTerm: event.target.value },
-                                })
-                                handleChange(dataBlogs, dataProjects)
+                                handleChange(dataBlogs)
                             }}
                         />
                     </div>
                     <Divider />
                     <List>
                         {searchProjectsResults.map((project) => (
-                            <Link
-                                to={`/projects/${project.id}`}
-                                style={{ textDecoration: 'none', color: 'black' }}
-                            >
-                                <ListItem
-                                    onClick={toggleDrawer('right', false)}
-                                    button
-                                    key={project.id}
-                                >
+                            <Link to={`/projects/${project.id}`} style={{ textDecoration: 'none', color: 'black' }}>
+                                <ListItem onClick={toggleDrawer('right', false)} button key={project.id}>
                                     <ListItemIcon>
-                                        {project.__typename === 'Project' ? (
-                                            <WorkIcon />
-                                        ) : (
-                                            <BookIcon />
-                                        )}
+                                        {project.__typename === 'Project' ? <WorkIcon /> : <BookIcon />}
                                     </ListItemIcon>
                                     <ListItemText primary={project.name} />
                                     <ListItemText primary={`${'(claps)'}: ${project.likes}`} />
@@ -87,15 +73,8 @@ const SearchDrawer = () => {
                             </Link>
                         ))}
                         {searchBlogsResults.map((blog) => (
-                            <Link
-                                to={`/blogs/${blog.id}`}
-                                style={{ textDecoration: 'none', color: 'black' }}
-                            >
-                                <ListItem
-                                    onClick={toggleDrawer('right', false)}
-                                    button
-                                    key={blog.id}
-                                >
+                            <Link to={`/blogs/${blog.id}`} style={{ textDecoration: 'none', color: 'black' }}>
+                                <ListItem onClick={toggleDrawer('right', false)} button key={blog.id}>
                                     <ListItemIcon>
                                         {blog.__typename === 'Blog' ? <BookIcon /> : <WorkIcon />}
                                     </ListItemIcon>
@@ -119,12 +98,7 @@ const SearchDrawer = () => {
 
     return (
         <React.Fragment key={'right'}>
-            <IconButton
-                onClick={toggleDrawer('right', true)}
-                edge='start'
-                color='inherit'
-                aria-label='open drawer'
-            >
+            <IconButton onClick={toggleDrawer('right', true)} edge='start' color='inherit' aria-label='open drawer'>
                 <SearchIcon />
             </IconButton>
             <Drawer

@@ -9,7 +9,7 @@ import userIcon from '../assets/static/person-circle-outline.svg'
 import '../assets/styles/components/Header.scss'
 import LogOut from './LogOut'
 import SearchDrawer from './SearchDrawer'
-import {Button as BootsBtn} from 'react-bootstrap'
+// import { Button as BootsBtn } from 'react-bootstrap'
 const Header = ({ session }) => {
     return <nav>{session && session.getCurrentUser ? <HeaderAuth session={session} /> : <HeaderUnAuth />}</nav>
 }
@@ -86,7 +86,7 @@ const HeaderUnAuth = () => {
         </header>
     )
 }
-const Btn = styled(NavLink, BootsBtn)
+// const Btn = styled(NavLink, BootsBtn)
 
 const NavDiv = styled.div`
     display: flex;
