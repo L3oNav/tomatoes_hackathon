@@ -173,6 +173,16 @@ export const GET_USER = gql`
     }
 `
 
+export const GET_MOVIE_COMMENTARIES = gql`
+    query($movie_id: String) {
+        getMovieCommentaries(movie_id: $movie_id) {
+            id
+            user
+            text
+        }
+    }
+`
+
 /* User Mutations */
 
 export const SIGNIN_USER = gql`
