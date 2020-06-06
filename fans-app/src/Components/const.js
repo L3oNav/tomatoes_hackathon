@@ -7,6 +7,7 @@ export const URL_YOUTUBE = 'https://www.youtube.com/embed/';
 export const URL_CAST = '/casts';
 export const URL_VIDEO = '/videos';
 export const IMG_SIZE_LARGE = 'w342';
+export const IMG_SIZE_SMALL = 'w154';
 export const CAST_MAX_NUM = 5;
 export const TRAILER_MAX_NUM = 3;
 export const API_KEY = '?api_key=1ccfe0b2fd2f7fe104c972fb07f760b5';
