@@ -17,7 +17,7 @@ function Root({ refetch, session }) {
             <Switch>
                 <Route exact path='/' component={Home} />
                 <Route exact path='/movie/:id' component={MovieDetailsContainer} />
-                <Route path='/sagas/:_id' render={() => <Blog session={session} />} />
+                <Route path='/sagas/:_id' render={()=><Blog session={session} />}/>
                 <Route path='/sagas' component={Sagas} />
                 <Route path='/profile' render={() => <Profile session={session} />} />
                 <Route path='/signup' render={() => <SignUp refetch={refetch} />} />
