@@ -41,7 +41,7 @@ const Sagas = () => {
                                 }
                             />
                         </Link>
-                        <ReactionsContainer showNumbers={true} value={sagasReactionsData[0]} />
+                        <ReactionsContainer showNumbers={true} isClickable={true} value={sagasReactionsData[0]} />
                     </CardAndReactionsContainer>
                     <CardAndReactionsContainer>
                         <Link key={0} to={`/blogs/`}>
@@ -50,13 +50,13 @@ const Sagas = () => {
                                 img={'https://i.pinimg.com/originals/d2/f4/c1/d2f4c1d25c462f750e8a8e0d2c67a6e5.jpg'}
                             />
                         </Link>
-                        <ReactionsContainer showNumbers={true} value={sagasReactionsData[1]} />
+                        <ReactionsContainer showNumbers={true} isClickable={true} value={sagasReactionsData[1]} />
                     </CardAndReactionsContainer>
                     <CardAndReactionsContainer>
                         <Link key={0} to={`/blogs/`}>
                             <Card title={'Avengers'} img={'https://i.ytimg.com/vi/fI_CqtIr2hg/maxresdefault.jpg'} />
                         </Link>
-                        <ReactionsContainer showNumbers={true} value={sagasReactionsData[2]} />
+                        <ReactionsContainer showNumbers={true} isClickable={true} value={sagasReactionsData[2]} />
                     </CardAndReactionsContainer>
                     <CardAndReactionsContainer>
                         <Link key={0} to={`/blogs/`}>
@@ -67,7 +67,7 @@ const Sagas = () => {
                                 }
                             />
                         </Link>
-                        <ReactionsContainer showNumbers={true} value={sagasReactionsData[3]} />
+                        <ReactionsContainer showNumbers={true} isClickable={true} value={sagasReactionsData[3]} />
                     </CardAndReactionsContainer>
                 </CardsContainer>
             </Container>

@@ -90,9 +90,23 @@ import { gql } from 'apollo-boost'
 //     }
 // `
 
+// SAGAS Queries and Mutations
 export const GET_SAGAS_REACTIONS = gql`
     {
         getSagas {
+            id
+            like
+            hearth
+            smile
+            surprise
+            sad
+        }
+    }
+`
+
+export const UPDATE_SAGAS_REACTIONS = gql`
+    mutation($_id: ID!, $like: Int!, $hearth: Int!, $smile: Int!, $surprise: Int!, $sad: Int!) {
+        updateSaga(_id: $_id, like: $like, hearth: $hearth, smile: $smile, surprise: $surprise, sad: $sad) {
             id
             like
             hearth
