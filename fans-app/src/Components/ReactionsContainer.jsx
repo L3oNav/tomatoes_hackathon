@@ -1,13 +1,14 @@
 import React from 'react'
 import styled from 'styled-components'
 
-const ReactionsContainer = ({ showNumbers }) => {
+const ReactionsContainer = ({ showNumbers, value }) => {
+    console.log('value', value)
     return (
         <Container>
             {showNumbers ? (
                 <ReactionTextContainer>
                     <CountryImg src='https://i.imgur.com/dG8tooW.png' />
-                    <>0</>
+                    <>{value ? value.like : 0}</>
                 </ReactionTextContainer>
             ) : (
                 <CountryImg src='https://i.imgur.com/dG8tooW.png' />
@@ -15,7 +16,7 @@ const ReactionsContainer = ({ showNumbers }) => {
             {showNumbers ? (
                 <ReactionTextContainer>
                     <CountryImg src='https://i.imgur.com/ei1Br91.png' />
-                    <>0</>
+                    <>{value ? value.hearth : 0}</>
                 </ReactionTextContainer>
             ) : (
                 <CountryImg src='https://i.imgur.com/ei1Br91.png' />
@@ -23,7 +24,7 @@ const ReactionsContainer = ({ showNumbers }) => {
             {showNumbers ? (
                 <ReactionTextContainer>
                     <CountryImg src='https://i.imgur.com/GRtZUgV.png' />
-                    <>0</>
+                    <>{value ? value.smile : 0}</>
                 </ReactionTextContainer>
             ) : (
                 <CountryImg src='https://i.imgur.com/GRtZUgV.png' />
@@ -31,7 +32,7 @@ const ReactionsContainer = ({ showNumbers }) => {
             {showNumbers ? (
                 <ReactionTextContainer>
                     <CountryImg src='https://i.imgur.com/rm5OL2a.png' />
-                    <>0</>
+                    <>{value ? value.surprise : 0}</>
                 </ReactionTextContainer>
             ) : (
                 <CountryImg src='https://i.imgur.com/rm5OL2a.png' />
@@ -39,7 +40,7 @@ const ReactionsContainer = ({ showNumbers }) => {
             {showNumbers ? (
                 <ReactionTextContainer>
                     <CountryImg src='https://i.imgur.com/HXPL7Zt.png' />
-                    <>0</>
+                    <>{value ? value.sad : 0}</>
                 </ReactionTextContainer>
             ) : (
                 <CountryImg src='https://i.imgur.com/HXPL7Zt.png' />
