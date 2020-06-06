@@ -5,6 +5,7 @@ import { Img, Title, Row, Column, Text } from './styles';
 // import StarRating from 'react-star-ratings';
 import { Rating } from '@material-ui/lab';
 import Cast from '../../Components/Cast/index'
+
 const DataMovies = ({ movie, cast }) => {
 	if (movie) {
 		return (
