@@ -90,6 +90,19 @@ import { gql } from 'apollo-boost'
 //     }
 // `
 
+export const GET_SAGAS_REACTIONS = gql`
+    {
+        getSagas {
+            id
+            like
+            hearth
+            smile
+            surprise
+            sad
+        }
+    }
+`
+
 // TODO - Add query to search movies
 export const SEARCH_BLOGS = gql`
     query($searchTerm: String) {
