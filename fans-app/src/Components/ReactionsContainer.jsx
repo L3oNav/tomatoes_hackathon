@@ -9,7 +9,6 @@ const ReactionsContainer = ({ showNumbers, isClickable, value }) => {
     const classes = useStyles()
 
     const _handleOnClick = (type) => {
-        console.log('value', value)
         if (type === 'like') {
             updateSagaReaction({
                 variables: {
@@ -71,12 +70,7 @@ const ReactionsContainer = ({ showNumbers, isClickable, value }) => {
 
     const [updateSagaReaction, { loading }] = useMutation(UPDATE_SAGAS_REACTIONS)
 
-    if (loading)
-        return (
-            <div className={classes.circular}>
-                <CircularProgress className={classes.progress} />
-            </div>
-        )
+    if (loading) return <CircularProgress className={classes.progress} />
 
     return (
         <Container>

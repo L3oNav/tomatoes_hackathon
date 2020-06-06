@@ -28,52 +28,54 @@ const Sagas = () => {
                 <CircularProgress className={classes.progress} />
             </div>
         )
-    return (
-        <>
-            <Container>
-                <CardsContainer>
-                    <CardAndReactionsContainer>
-                        <Link key={0} to={`/sagas/23412341234234`}>
-                            <Card
-                                title={'Star Wars'}
-                                img={
-                                    'https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/Star_Wars_Logo.svg/500px-Star_Wars_Logo.svg.png'
-                                }
-                            />
-                        </Link>
-                        <ReactionsContainer showNumbers={true} isClickable={true} value={sagasReactionsData[0]} />
-                    </CardAndReactionsContainer>
-                    <CardAndReactionsContainer>
-                        <Link key={0} to={`/blogs/`}>
-                            <Card
-                                title={'Harry Potter'}
-                                img={'https://i.pinimg.com/originals/d2/f4/c1/d2f4c1d25c462f750e8a8e0d2c67a6e5.jpg'}
-                            />
-                        </Link>
-                        <ReactionsContainer showNumbers={true} isClickable={true} value={sagasReactionsData[1]} />
-                    </CardAndReactionsContainer>
-                    <CardAndReactionsContainer>
-                        <Link key={0} to={`/blogs/`}>
-                            <Card title={'Avengers'} img={'https://i.ytimg.com/vi/fI_CqtIr2hg/maxresdefault.jpg'} />
-                        </Link>
-                        <ReactionsContainer showNumbers={true} isClickable={true} value={sagasReactionsData[2]} />
-                    </CardAndReactionsContainer>
-                    <CardAndReactionsContainer>
-                        <Link key={0} to={`/blogs/`}>
-                            <Card
-                                title={'Lord of the Rings'}
-                                img={
-                                    'https://www.ecestaticos.com/image/clipping/1200/900/698c7567d713c5d0db2dd3af7c2d658f/las-claves-de-la-segunda-edad-el-escenario-de-la-nueva-serie-de-039-el-senor-de-los-anillos-039.jpg'
-                                }
-                            />
-                        </Link>
-                        <ReactionsContainer showNumbers={true} isClickable={true} value={sagasReactionsData[3]} />
-                    </CardAndReactionsContainer>
-                </CardsContainer>
-            </Container>
-            <Footer />
-        </>
-    )
+    if (sagasReactionsData) {
+        return (
+            <>
+                <Container>
+                    <CardsContainer>
+                        <CardAndReactionsContainer>
+                            <Link key={0} to={`/sagas/23412341234234`}>
+                                <Card
+                                    title={'Star Wars'}
+                                    img={
+                                        'https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/Star_Wars_Logo.svg/500px-Star_Wars_Logo.svg.png'
+                                    }
+                                />
+                            </Link>
+                            <ReactionsContainer showNumbers={true} isClickable={true} value={sagasReactionsData[0]} />
+                        </CardAndReactionsContainer>
+                        <CardAndReactionsContainer>
+                            <Link key={0} to={`/blogs/`}>
+                                <Card
+                                    title={'Harry Potter'}
+                                    img={'https://i.pinimg.com/originals/d2/f4/c1/d2f4c1d25c462f750e8a8e0d2c67a6e5.jpg'}
+                                />
+                            </Link>
+                            <ReactionsContainer showNumbers={true} isClickable={true} value={sagasReactionsData[1]} />
+                        </CardAndReactionsContainer>
+                        <CardAndReactionsContainer>
+                            <Link key={0} to={`/blogs/`}>
+                                <Card title={'Avengers'} img={'https://i.ytimg.com/vi/fI_CqtIr2hg/maxresdefault.jpg'} />
+                            </Link>
+                            <ReactionsContainer showNumbers={true} isClickable={true} value={sagasReactionsData[2]} />
+                        </CardAndReactionsContainer>
+                        <CardAndReactionsContainer>
+                            <Link key={0} to={`/blogs/`}>
+                                <Card
+                                    title={'Lord of the Rings'}
+                                    img={
+                                        'https://www.ecestaticos.com/image/clipping/1200/900/698c7567d713c5d0db2dd3af7c2d658f/las-claves-de-la-segunda-edad-el-escenario-de-la-nueva-serie-de-039-el-senor-de-los-anillos-039.jpg'
+                                    }
+                                />
+                            </Link>
+                            <ReactionsContainer showNumbers={true} isClickable={true} value={sagasReactionsData[3]} />
+                        </CardAndReactionsContainer>
+                    </CardsContainer>
+                </Container>
+                <Footer />
+            </>
+        )
+    }
 }
 const Container = styled.div`
     background-color: #162447;
