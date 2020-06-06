@@ -14,5 +14,5 @@ const DetailsMovie = ({movie}) => {
 		} else {
 			return <div>Loading...</div>;
         }
-}
+};
 export default (DetailsMovie);
