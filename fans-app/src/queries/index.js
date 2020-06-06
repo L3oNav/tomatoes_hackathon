@@ -117,6 +117,17 @@ export const UPDATE_SAGAS_REACTIONS = gql`
     }
 `
 
+export const ADD_COMMENTARY = gql`
+    mutation($movie_id: String!, $user: String!, $text: String!) {
+        addComment(movie_id: $movie_id, user: $user, text: $text) {
+            id
+            movie_id
+            user
+            text
+        }
+    }
+`
+
 // TODO - Add query to search movies
 export const SEARCH_BLOGS = gql`
     query($searchTerm: String) {

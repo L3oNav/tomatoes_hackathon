@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import styled from 'styled-components'
 import userIcon from '../assets/static/person-circle-outline.svg'
 import { GET_MOVIE_COMMENTARIES } from '../queries/index'
-import { useQuery, useMutation } from 'react-apollo'
+import { useQuery } from 'react-apollo'
 import CircularProgress from '@material-ui/core/CircularProgress'
 import { makeStyles } from '@material-ui/core/styles'
 
@@ -11,7 +11,7 @@ const CommentaryField = () => {
     const [data, setData] = useState('')
     const { loading } = useQuery(GET_MOVIE_COMMENTARIES, {
         variables: {
-            movie_id: '123123123',
+            movie_id: '104',
         },
         onCompleted: (data) => {
             console.log('data', data.getMovieCommentaries)

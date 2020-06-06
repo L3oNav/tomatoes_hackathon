@@ -7,17 +7,37 @@ import CustomTextArea from '../Components/CustomTextArea'
 import Footer from '../Components/Footer'
 import CommentaryField from './CommentaryField'
 import { makeStyles } from '@material-ui/core/styles'
+import { ADD_COMMENTARY } from '../queries/index'
+import { useMutation } from 'react-apollo'
+import CircularProgress from '@material-ui/core/CircularProgress'
 
-const CustomTextField = () => {
+const CustomTextField = ({ session }) => {
     const classes = useStyles()
-    const [value, setValue] = useState('')
+    const [movieId, setMovieId] = useState('104')
+    const [text, setText] = useState('lorem ipsum')
 
     const _handleInputChange = (event) => {
         const { name, value } = event.target
-        if (name === 'value') {
-            setValue(value)
+        if (name === 'commentary') {
+            setText(value)
         }
     }
+
+    const _handleOnClick = () => {
+        addComment()
+        window.location.reload()
+    }
+
+    const [addComment, { loading }] = useMutation(ADD_COMMENTARY, {
+        variables: { movie_id: movieId, user: session.getCurrentUser.username, text },
+    })
+
+    if (loading)
+        return (
+            <div className={classes.circular}>
+                <CircularProgress className={classes.progress} />
+            </div>
+        )
     return (
         <>
             <Container>
@@ -25,15 +45,15 @@ const CustomTextField = () => {
                     <Grid item sm={8} xs={12}>
                         <Paper className={classes.saveProfilePaper}>
                             {` `}
-                            <CommentaryField></CommentaryField>
+                            <CommentaryField session={session}></CommentaryField>
                             <form className={classes.formTextField} noValidate autoComplete='off'>
                                 <InputContainer>
                                     <CustomTextArea
-                                        name={'value'}
+                                        name={'commentary'}
                                         type={'text'}
                                         placeholder={'Comentario'}
                                         multiline
-                                        value={`${value}`}
+                                        value={`${text}`}
                                         onChange={_handleInputChange}
                                         title={'Comentario'}
                                     />
@@ -41,7 +61,7 @@ const CustomTextField = () => {
                                 <Button
                                     variant='contained'
                                     className={classes.saveButtonProfile}
-                                    onClick={() => console.log('onClick')}
+                                    onClick={_handleOnClick}
                                 >
                                     Publicar
                                 </Button>
