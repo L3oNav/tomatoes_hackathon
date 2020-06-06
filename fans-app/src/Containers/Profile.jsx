@@ -57,8 +57,6 @@ const Profile = ({ session }) => {
     const [name, setName] = useState('')
     const [username, setUsername] = useState('')
     const [email, setEmail] = useState('')
-    // const [university, setUniversity] = useState('')
-    // const [experience, setExperience] = useState('')
     const [fav, setFav] = useState('')
 
     const handleChange = (event, newValue) => {

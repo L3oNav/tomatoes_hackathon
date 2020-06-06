@@ -2,7 +2,7 @@ import React from 'react'
 import { BrowserRouter, Redirect, Route, Switch } from 'react-router-dom'
 import '../assets/styles/App.scss'
 import Header from '../Components/Header'
-import Blog from '../Containers/Blog'
+import CustomTextField from '../Components/CustomTextField'
 import Sagas from '../Containers/Sagas'
 import Home from '../Containers/Home'
 import Profile from '../Containers/Profile'
@@ -17,7 +17,7 @@ function Root({ refetch, session }) {
             <Switch>
                 <Route exact path='/' component={Home} />
                 <Route exact path='/movie/:id' component={MovieDetailsContainer} />
-                <Route path='/sagas/:_id' render={() => <Blog session={session} />} />
+                <Route path='/sagas/:_id' render={() => <CustomTextField session={session} />} />
                 <Route path='/sagas' component={Sagas} />
                 <Route path='/profile' render={() => <Profile session={session} />} />
                 <Route path='/signup' render={() => <SignUp refetch={refetch} />} />

@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 
-const CustomInput = ({ name, type, title, placeholder, value, onChange }) => {
+const CustomTextArea = ({ name, type, title, placeholder, value, onChange }) => {
     return (
         <InputContainer>
             <InputTitle>{title}</InputTitle>
@@ -19,18 +19,19 @@ const InputTitle = styled.p`
     margin-left: -120px;
 `
 
-const Input = styled.input`
+const Input = styled.textarea`
     background-color: rgba(255, 255, 255, 0.1);
     border: 0px solid white;
     border-radius: 10px;
     color: white;
     font-family: 'Muli', sans-serif;
     font-size: 16px;
-    height: 50px;
+    height: 100px;
+    width: 200px;
     margin-top: -15px;
     margin-bottom: 20px;
     outline: none;
-    padding: 0px 20px;
+    padding: 20px 20px;
 `
 
-export default CustomInput
+export default CustomTextArea
