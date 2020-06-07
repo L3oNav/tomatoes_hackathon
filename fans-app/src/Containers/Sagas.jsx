@@ -34,7 +34,7 @@ const Sagas = () => {
                 <Container>
                     <CardsContainer>
                         <CardAndReactionsContainer>
-                            <Link key={0} to={`/sagas/23412341234234`}>
+                            <Link key={0} to={`/sagas`}>
                                 <Card
                                     title={'Star Wars'}
                                     img={
@@ -45,7 +45,7 @@ const Sagas = () => {
                             <ReactionsContainer showNumbers={true} isClickable={true} value={sagasReactionsData[0]} />
                         </CardAndReactionsContainer>
                         <CardAndReactionsContainer>
-                            <Link key={0} to={`/blogs/`}>
+                            <Link key={0} to={`/sagas`}>
                                 <Card
                                     title={'Harry Potter'}
                                     img={'https://i.pinimg.com/originals/d2/f4/c1/d2f4c1d25c462f750e8a8e0d2c67a6e5.jpg'}
@@ -54,13 +54,13 @@ const Sagas = () => {
                             <ReactionsContainer showNumbers={true} isClickable={true} value={sagasReactionsData[1]} />
                         </CardAndReactionsContainer>
                         <CardAndReactionsContainer>
-                            <Link key={0} to={`/blogs/`}>
+                            <Link key={0} to={`/sagas`}>
                                 <Card title={'Avengers'} img={'https://i.ytimg.com/vi/fI_CqtIr2hg/maxresdefault.jpg'} />
                             </Link>
                             <ReactionsContainer showNumbers={true} isClickable={true} value={sagasReactionsData[2]} />
                         </CardAndReactionsContainer>
                         <CardAndReactionsContainer>
-                            <Link key={0} to={`/blogs/`}>
+                            <Link key={0} to={`/sagas`}>
                                 <Card
                                     title={'Lord of the Rings'}
                                     img={
