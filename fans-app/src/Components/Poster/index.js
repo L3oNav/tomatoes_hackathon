@@ -3,7 +3,7 @@ import { URL_IMG, IMG_SIZE_LARGE, IMG_SIZE_SMALL } from '../const'
 import { Image } from 'react-bootstrap'
 import styled from 'styled-components'
 import { Link } from 'react-router-dom'
-export const Poster = ({ id, path, title, info, voteAverage, release_date, large = false }) => {
+export const Poster = ({ id, path, large = false }) => {
     const Img = styled(Image)`
         border-radius: 3px;
     `
