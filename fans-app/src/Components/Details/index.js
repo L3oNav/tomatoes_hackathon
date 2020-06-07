@@ -7,7 +7,6 @@ import { Rating } from '@material-ui/lab'
 import Cast from '../../Components/Cast/index'
 import styled from 'styled-components'
 import CustomTextArea from '../CustomTextArea'
-import Footer from '../Footer'
 import CommentaryField from '../CommentaryField'
 import { makeStyles } from '@material-ui/core/styles'
 import { ADD_COMMENTARY } from '../../queries/index'
@@ -20,7 +19,6 @@ import Paper from '@material-ui/core/Paper'
 const DataMovies = ({ movie, cast, session }) => {
     const classes = useStyles()
     console.log('session', session)
-    const [movieId, setMovieId] = useState('104')
     const [text, setText] = useState('lorem ipsum')
     const _handleInputChange = (event) => {
         const { name, value } = event.target
@@ -29,21 +27,18 @@ const DataMovies = ({ movie, cast, session }) => {
         }
     }
 
-    const _handleOnClick = () => {
-        // addComment()
+    const _handleOnClick = (movieId) => {
+        addComment({ variables: { movie_id: movieId.toString(), user: session.getCurrentUser.username, text } })
         window.location.reload()
     }
+    const [addComment, { loading }] = useMutation(ADD_COMMENTARY)
 
-    const [addComment, { loading }] = useMutation(ADD_COMMENTARY, {
-        variables: { movie_id: movieId, user: session.getCurrentUser.username, text },
-    })
-
-    // if (loading)
-    //     return (
-    //         <div className={classes.circular}>
-    //             <CircularProgress className={classes.progress} />
-    //         </div>
-    //     )
+    if (loading)
+        return (
+            <div className={classes.circular}>
+                <CircularProgress className={classes.progress} />
+            </div>
+        )
 
     if (movie) {
         return (
@@ -84,12 +79,44 @@ const DataMovies = ({ movie, cast, session }) => {
                     </Column>
                 </Row>
                 <Cast cast={cast} />
+                <Grid container spacing={3}>
+                    <Grid item sm={8} xs={12}>
+                        <Paper className={classes.saveProfilePaper}>
+                            {` `}
+                            {movie.id ? <CommentaryField movieId={movie.id} session={session}></CommentaryField> : null}
+                            <form className={classes.formTextField} noValidate autoComplete='off'>
+                                <InputContainer>
+                                    <CustomTextArea
+                                        name={'commentary'}
+                                        type={'text'}
+                                        placeholder={'Comentario'}
+                                        multiline
+                                        value={`${text}`}
+                                        onChange={_handleInputChange}
+                                        title={'Comentario'}
+                                    />
+                                </InputContainer>
+                                <Button
+                                    variant='contained'
+                                    className={classes.saveButtonProfile}
+                                    onClick={() => _handleOnClick(movie.id)}
+                                >
+                                    Publicar
+                                </Button>
+                            </form>
+                        </Paper>
+                    </Grid>
+                </Grid>
             </Container>
         )
     } else {
         return <div>Loading...</div>
     }
 }
+
+const InputContainer = styled.div`
+    padding-top: 20px;
+`
 
 const useStyles = makeStyles((theme) => ({
     saveProfilePaper: {

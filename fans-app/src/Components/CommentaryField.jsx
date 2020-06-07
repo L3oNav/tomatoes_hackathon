@@ -6,15 +6,14 @@ import { useQuery } from 'react-apollo'
 import CircularProgress from '@material-ui/core/CircularProgress'
 import { makeStyles } from '@material-ui/core/styles'
 
-const CommentaryField = () => {
+const CommentaryField = ({ movieId }) => {
     const classes = useStyles()
     const [data, setData] = useState('')
     const { loading } = useQuery(GET_MOVIE_COMMENTARIES, {
         variables: {
-            movie_id: '104',
+            movie_id: movieId.toString(),
         },
         onCompleted: (data) => {
-            console.log('data', data.getMovieCommentaries)
             setData(data.getMovieCommentaries)
         },
     })
