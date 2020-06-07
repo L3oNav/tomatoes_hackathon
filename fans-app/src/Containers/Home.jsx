@@ -2,10 +2,11 @@ import React from 'react'
 import styled from 'styled-components'
 import DiscoverMovies from '../Components/discoverMovies/index'
 
-const Home = () => {
+const Home = (props) => {
+    console.log(props)
     return (
         <Container>
-            <DiscoverMovies />
+            <DiscoverMovies page={props.page}/>
         </Container>
     )
 }
