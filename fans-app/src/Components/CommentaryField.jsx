@@ -1,23 +1,32 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
 import userIcon from '../assets/static/person-circle-outline.svg'
-import { GET_MOVIE_COMMENTARIES } from '../queries/index'
-import { useQuery } from 'react-apollo'
+import { GET_MOVIE_COMMENTARIES, DELETE_USER_COMMENTARY } from '../queries/index'
+import { useQuery, useMutation } from 'react-apollo'
 import CircularProgress from '@material-ui/core/CircularProgress'
 import { makeStyles } from '@material-ui/core/styles'
+import Fab from '@material-ui/core/Fab'
+import DeleteIcon from '@material-ui/icons/Delete'
 
-const CommentaryField = () => {
+const CommentaryField = ({ movieId }) => {
     const classes = useStyles()
     const [data, setData] = useState('')
+
+    const _handleDeleteCommentary = (id) => {
+        deleteUserCommentary({ variables: { _id: id } })
+        window.location.reload()
+    }
+
     const { loading } = useQuery(GET_MOVIE_COMMENTARIES, {
         variables: {
-            movie_id: '104',
+            movie_id: movieId.toString(),
         },
         onCompleted: (data) => {
-            console.log('data', data.getMovieCommentaries)
             setData(data.getMovieCommentaries)
         },
     })
+
+    const [deleteUserCommentary] = useMutation(DELETE_USER_COMMENTARY)
 
     if (loading)
         return (
@@ -32,11 +41,19 @@ const CommentaryField = () => {
                 ? data.map((comment) => (
                       <Container key={comment.id}>
                           <>
-                              {console.log('comment', comment)}
                               <div>
                                   <UserImg src={userIcon} alt='' />
                                   <UserText>{comment.user}</UserText>
-                                  {/* <UserText>{data[0].user}</UserText> */}
+                                  <Fab
+                                      key={comment.id}
+                                      onClick={() => {
+                                          _handleDeleteCommentary(comment.id)
+                                      }}
+                                      color='secondary'
+                                      aria-label='add'
+                                  >
+                                      <DeleteIcon />
+                                  </Fab>
                               </div>
                               <Text>{comment.text}</Text>
                           </>
@@ -48,6 +65,7 @@ const CommentaryField = () => {
 }
 
 const Container = styled.div`
+    margin: 20px;
     border-radius: 5px;
     min-height: 200px;
     min-width: 300px;
@@ -55,12 +73,14 @@ const Container = styled.div`
     background: #1b1b2f;
 `
 
-const Text = styled.div`
+const Text = styled.p`
     text-align: justify;
     padding: 30px;
 `
 
-const UserText = styled.p``
+const UserText = styled.p`
+    font-size: 1.5vw;
+`
 
 const UserImg = styled.img`
     margin-top: 5%;

@@ -211,3 +211,11 @@ export const SIGNUP_USER = gql`
         }
     }
 `
+
+export const DELETE_USER_COMMENTARY = gql`
+    mutation($_id: ID!) {
+        deleteUserCommentary(_id: $_id) {
+            id
+        }
+    }
+`
