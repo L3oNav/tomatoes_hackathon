@@ -82,7 +82,7 @@ const DataMovies = ({ movie, cast, session }) => {
                 {session.getCurrentUser ? (
                     <CommentaryContainer>
                         <Grid container spacing={3}>
-                            <Grid item sm={8} xs={12}>
+                            <Grid item sm={12} xs={12}>
                                 <Paper className={classes.saveProfilePaper}>
                                     {` `}
                                     {movie.id ? (
@@ -125,7 +125,7 @@ const InputContainer = styled.div`
 `
 
 const CommentaryContainer = styled.div`
-    align-self: center;
+    margin-top: 50px;
 `
 
 const useStyles = makeStyles((theme) => ({

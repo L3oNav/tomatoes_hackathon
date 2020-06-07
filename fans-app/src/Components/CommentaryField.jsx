@@ -65,10 +65,10 @@ const CommentaryField = ({ movieId }) => {
 }
 
 const Container = styled.div`
+    margin: 20px;
     border-radius: 5px;
     min-height: 200px;
     min-width: 300px;
-    max-width: 500px;
     display: inline-block;
     background: #1b1b2f;
 `
