@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import DetailsMovie from '../../Components/detailsMovie/index'
 import DataMovies from '../../Components/Details/index'
 import { connect } from 'react-redux'
 import { detailMovieAction } from '../../Redux/Actions/movies'
