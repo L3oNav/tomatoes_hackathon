@@ -19,7 +19,7 @@ import Paper from '@material-ui/core/Paper'
 const DataMovies = ({ movie, cast, session }) => {
     const classes = useStyles()
     console.log('session', session)
-    const [text, setText] = useState('lorem ipsum')
+    const [text, setText] = useState('')
     const _handleInputChange = (event) => {
         const { name, value } = event.target
         if (name === 'commentary') {
