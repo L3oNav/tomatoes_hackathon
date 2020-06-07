@@ -79,34 +79,40 @@ const DataMovies = ({ movie, cast, session }) => {
                     </Column>
                 </Row>
                 <Cast cast={cast} />
-                <Grid container spacing={3}>
-                    <Grid item sm={8} xs={12}>
-                        <Paper className={classes.saveProfilePaper}>
-                            {` `}
-                            {movie.id ? <CommentaryField movieId={movie.id} session={session}></CommentaryField> : null}
-                            <form className={classes.formTextField} noValidate autoComplete='off'>
-                                <InputContainer>
-                                    <CustomTextArea
-                                        name={'commentary'}
-                                        type={'text'}
-                                        placeholder={'Comentario'}
-                                        multiline
-                                        value={`${text}`}
-                                        onChange={_handleInputChange}
-                                        title={'Comentario'}
-                                    />
-                                </InputContainer>
-                                <Button
-                                    variant='contained'
-                                    className={classes.saveButtonProfile}
-                                    onClick={() => _handleOnClick(movie.id)}
-                                >
-                                    Publicar
-                                </Button>
-                            </form>
-                        </Paper>
-                    </Grid>
-                </Grid>
+                {session.getCurrentUser ? (
+                    <CommentaryContainer>
+                        <Grid container spacing={3}>
+                            <Grid item sm={8} xs={12}>
+                                <Paper className={classes.saveProfilePaper}>
+                                    {` `}
+                                    {movie.id ? (
+                                        <CommentaryField movieId={movie.id} session={session}></CommentaryField>
+                                    ) : null}
+                                    <form className={classes.formTextField} noValidate autoComplete='off'>
+                                        <InputContainer>
+                                            <CustomTextArea
+                                                name={'commentary'}
+                                                type={'text'}
+                                                placeholder={'Comentario'}
+                                                multiline
+                                                value={`${text}`}
+                                                onChange={_handleInputChange}
+                                                title={'Comentario'}
+                                            />
+                                        </InputContainer>
+                                        <Button
+                                            variant='contained'
+                                            className={classes.saveButtonProfile}
+                                            onClick={() => _handleOnClick(movie.id)}
+                                        >
+                                            Publicar
+                                        </Button>
+                                    </form>
+                                </Paper>
+                            </Grid>
+                        </Grid>
+                    </CommentaryContainer>
+                ) : null}
             </Container>
         )
     } else {
@@ -116,6 +122,10 @@ const DataMovies = ({ movie, cast, session }) => {
 
 const InputContainer = styled.div`
     padding-top: 20px;
+`
+
+const CommentaryContainer = styled.div`
+    align-self: center;
 `
 
 const useStyles = makeStyles((theme) => ({
