@@ -31,14 +31,10 @@ export const Poster = ({ id, path, title, info, voteAverage, release_date, large
 			return IMG_SIZE_SMALL;
 		}
 	};
-
+	// console.log(id)
 	return (
 		<Article to={'/movie/' + id}>
 			<Img className="image" key={id} src={URL_IMG + ImgSize() + path} />
-			<Info>
-				<Title>{title}</Title>
-				{/* <Glyphicon glyph={'star'} /> {voteAverage} &nbsp;&nbsp; {release_date.substring(0,4)} */}
-			</Info>
 		</Article>
 	);
 };
