@@ -1,95 +1,5 @@
 import { gql } from 'apollo-boost'
 
-/* Blogs  Queries */
-// export const GET_BLOGS = gql`
-//     query getBlogs {
-//         getBlogs {
-//             id
-//             title
-//             subtitle
-//             description
-//             body
-//             images
-//             developers
-//         }
-//     }
-// `
-
-// export const GET_SORTED_BLOGS = gql`
-//     query getSortedBlogs {
-//         getSortedBlogs {
-//             id
-//             title
-//             subtitle
-//             description
-//             body
-//             images
-//             developers
-//         }
-//     }
-// `
-
-// export const GET_BLOGS_NAMES = gql`
-//     query getSortedBlogs {
-//         getSortedBlogs {
-//             id
-//             name
-//             images
-//         }
-//     }
-// `
-
-// export const GET_BLOG = gql`
-//     query($_id: ID!) {
-//         getBlog(_id: $_id) {
-//             id
-//             name
-//             title
-//             subtitle
-//             body
-//             images
-//             likes
-//             createdDate
-//             developers
-//             description
-//         }
-//     }
-// `
-
-// /* Blogs Mutations */
-// export const ADD_BLOG = gql`
-//     mutation(
-//         $name: String!
-//         $title: String!
-//         $subtitle: String!
-//         $description: String!
-//         $body: String!
-//         $developers: [String]!
-//         $images: [String]
-//     ) {
-//         addBlog(
-//             name: $name
-//             title: $title
-//             subtitle: $subtitle
-//             description: $description
-//             body: $body
-//             developers: $developers
-//             images: $images
-//         ) {
-//             id
-//             name
-//             title
-//             subtitle
-//             description
-//             body
-//             developers
-//             images
-//             createdDate
-//             likes
-//         }
-//     }
-// `
-
 // SAGAS Queries and Mutations
 export const GET_SAGAS_REACTIONS = gql`
     {
@@ -135,14 +45,6 @@ export const SEARCH_BLOGS = gql`
             id
             name
             likes
-        }
-    }
-`
-
-export const DELETE_USER_BLOG = gql`
-    mutation($_id: ID!) {
-        deleteUserBlog(_id: $_id) {
-            id
         }
     }
 `
