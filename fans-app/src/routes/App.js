@@ -3,26 +3,26 @@ import { BrowserRouter, Redirect, Route, Switch } from 'react-router-dom'
 import '../assets/styles/App.scss'
 import Header from '../Components/Header'
 import Sagas from '../Containers/Sagas'
-import DiscoverMovies from '../Components/discoverMovies/index'
+import ListMovies from '../Components/ListMovies/index'
 import Profile from '../Containers/Profile'
 import SignIn from '../Containers/SignIn'
 import SignUp from '../Containers/SignUp'
 import withSession from './withSession'
-import MovieDetailsContainer from '../Containers/MovieDetailsContainer/index'
+// import MovieDetailsContainer from '../Containers/MovieDetailsContainer/index'
 
 function Root({ refetch, session }) {
     return (
         <BrowserRouter>
             <Header session={session} />
             <Switch>
-                <Route exact path='/movies/:page' component={DiscoverMovies} />
-                <Route exact path='/movies' component={DiscoverMovies} />
-                <Route exact path='/movie/:id' component={MovieDetailsContainer} />
+                <Route exact path='/' component={ListMovies} />
+                <Route exact path='/:page' component={ListMovies} />
+                {/* <Route exact path='/movie/:id' component={MovieDetailsContainer} /> */}
                 <Route path='/sagas' component={Sagas} />
                 <Route path='/profile' render={() => <Profile session={session} />} />
                 <Route path='/signup' render={() => <SignUp refetch={refetch} />} />
                 <Route path='/signin' render={() => <SignIn refetch={refetch} />} />
-                <Redirect to='/movies/1' />
+                <Redirect to='/' />
             </Switch>
         </BrowserRouter>
     )

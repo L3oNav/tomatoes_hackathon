@@ -1,25 +1,19 @@
-import axios from 'axios';
-import {API_KEY, URL_DETAIL} from '../const'
+import { API_KEY, URL_DETAIL } from "../const";
 
-
-
-export const castsMovieAction = (id) => async(dispatch) => {
-    dispatch(
-      { type:"getCastLoading" }
-    )
-    try {
-      const response = await axios.get(URL_DETAIL + id + '/credits' + API_KEY)
-      dispatch(
-        {
-          type:"getCastSuccess",
-          payload: [response.data.cast]
-        }
-      )
-    }
-    catch (err) {
+export const movieCastAction = (id) => (dispatch) => {
+  dispatch({ type: "castMovieLoading" });
+  fetch(URL_DETAIL + id + URL_CAST + API_KEY)
+    .then((response) => response.json())
+    .then((json) => {
+      return dispatch({
+        type: "castMovieSuccess",
+        payload: json,
+      });
+    })
+    .catch((err) =>
       dispatch({
-        type: "getCastError",
-        payload: err.message
+        type: "castMovieError",
+        payload: err,
       })
-    }
-  }
+    );
+};
