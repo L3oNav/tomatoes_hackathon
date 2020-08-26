@@ -233,8 +233,8 @@ const Container = styled.section`
   align-items: center;
   background-color: rgba(255, 255, 255, 0.1);
   border-radius: 10px;
-  box-shadow: 0px 0px 15px 2px rgba(240, 235, 240, 0.64);
-  color: white;
+  box-shadow: 0px 0px 15px 2px rgba(30, 30, 30, 0.64);
+  color: black;
   display: flex;
   flex-direction: column;
   justify-content: space-around;

@@ -21,7 +21,7 @@ const InputContainer = styled.div`
 `
 
 const InputTitle = styled.p`
-  color: black;
+  color: white;
   margin-left: -120px;
 `
 

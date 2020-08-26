@@ -114,10 +114,10 @@ const ProfileWelcomeDiv = styled.div`
 `
 
 const ProfileImg = styled.img`
-  width: 40px;
+  width: 30px;
   border-radius: 100%;
   object-fit: cover;
-  filter: invert(100%) sepia(0%) saturate(50%) hue-rotate(0deg) brightness(100%)
+  filter: invert(20%) sepia(0%) saturate(50%) hue-rotate(0deg) brightness(100%)
     contrast(80%);
 `
 
@@ -150,9 +150,8 @@ const NavButtonsP = styled.p`
 `
 
 const HeaderUsername = styled.p`
-  color: whitesmoke;
+  color: black;
   cursor: pointer;
-  margin: 0;
   padding-left: 10px;
 `
 

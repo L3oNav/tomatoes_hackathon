@@ -7,39 +7,40 @@ import ApolloClient from 'apollo-boost'
 import { ApolloProvider } from 'react-apollo'
 import Root from './routes/App'
 const serverUri =
-    process.env.NODE_ENV === 'development'
-        ? 'http://localhost:3500/graphql'
-        : 'https://team-50-tomatoes-server.now.sh/graphql'
+  process.env.NODE_ENV === 'development'
+    ? 'http://localhost:3500/graphql'
+    : 'https://team-50-tomatoes-server.now.sh/graphql'
 
 const client = new ApolloClient({
-    uri: serverUri,
-    fetchOptions: {
-        credentials: 'include',
-    },
-    request: (operation) => {
-        const token = localStorage.getItem('token')
-        operation.setContext({
-            headers: {
-                authorization: token,
-            },
-        })
-    },
-    onError: ({ networkError }) => {
-        if (networkError) {
-            console.log('Network Error', networkError)
+  uri: serverUri,
+  fetchOptions: {
+    credentials: 'include',
+  },
+  request: (operation) => {
+    const token = localStorage.getItem('token')
+    console.log('token :>> ', token)
+    operation.setContext({
+      headers: {
+        authorization: token,
+      },
+    })
+  },
+  onError: ({ networkError }) => {
+    if (networkError) {
+      console.log('Network Error', networkError)
 
-            // if (networkError.statusCode === 401) {
-            //     localStorage.removeItem('token')
-            // }
-        }
-    },
+      // if (networkError.statusCode === 401) {
+      //     localStorage.removeItem('token')
+      // }
+    }
+  },
 })
 
 ReactDOM.render(
-    <ApolloProvider client={client}>
-        <Provider store={store}>
-            <Root />
-        </Provider>
-    </ApolloProvider>,
-    document.getElementById('root')
+  <ApolloProvider client={client}>
+    <Provider store={store}>
+      <Root />
+    </Provider>
+  </ApolloProvider>,
+  document.getElementById('root')
 )
