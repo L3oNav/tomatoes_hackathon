@@ -9,7 +9,7 @@ import Root from './routes/App'
 const serverUri =
   process.env.NODE_ENV === 'development'
     ? 'http://localhost:3500/graphql'
-    : 'https://team-50-tomatoes-server.now.sh/graphql'
+    : 'https://team-50-tomatoes-server.dancaldera.vercel.app/graphql'
 
 const client = new ApolloClient({
   uri: serverUri,
