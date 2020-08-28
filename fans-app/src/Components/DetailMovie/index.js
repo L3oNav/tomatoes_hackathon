@@ -39,7 +39,9 @@ class DetailMovie extends Component {
 			<Container>
 				{this.showMovie()}
 				{this.showCast()}
+
 				<Video id={this.state.id}/>
+				{/* Aquí van los comentarios xd */}
 			</Container>
 		);
 	}

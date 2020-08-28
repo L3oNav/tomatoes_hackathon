@@ -2,15 +2,15 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import { moviesVideosAction } from '../../Redux/Actions/video';
-import P5Wrapper from 'react-p5-wrapper'
-import objectDetectionSketch from '../ObjectDetectionSketch'
+import P5Wrapper from 'react-p5-wrapper';
+import objectDetectionSketch from '../ObjectDetectionSketch';
 import styled from 'styled-components';
 
 const Container = styled.div`
 	display: flex;
 	justify-content: space-around;
 	margin: 0 auto;
-`
+`;
 
 class Video extends Component {
 	async componentDidMount() {
@@ -26,7 +26,7 @@ class Video extends Component {
 						height="480"
 						src={'https://www.youtube.com/embed/' + this.props.video.video.results[0].key}
 					/>
-					<P5Wrapper sketch={objectDetectionSketch}/>
+					<P5Wrapper sketch={objectDetectionSketch} />
 				</Container>
 			);
 		} else {

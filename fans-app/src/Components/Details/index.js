@@ -92,7 +92,6 @@ const DataMovies = ({ movie, cast, session }) => {
         <Cast cast={cast} />
         {session.getCurrentUser ? (
           <CommentaryContainer>
-            <P5Wrapper sketch={objectDetectionSketch} />
             <Grid container spacing={3}>
               <Grid item sm={12} xs={12}>
                 <Paper className={classes.saveProfilePaper}>
