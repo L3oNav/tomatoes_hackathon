@@ -5,12 +5,12 @@ function NavigationButtons({ page }) {
     if (page > 1) {
       return (
         <div>
-          <Article to={'/' + (page - 1)}>Previous</Article>
-          <Article to={'/' + (page + 1)}>Next</Article>
+          <Article to={'/movies/' + (page - 1)}>Previous</Article>
+          <Article to={'/movies/' + (page + 1)}>Next</Article>
         </div>
       )
     } else {
-      return <Article to={'/' + (page + 1)}>Next</Article>
+      return <Article to={'/movies/' + (page + 1)}>Next</Article>
     }
   }
   return <div>{ButtonsHandler()}</div>

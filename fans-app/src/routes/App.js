@@ -16,14 +16,14 @@ function Root({ refetch, session }) {
         <BrowserRouter>
             <Header session={session} />
             <Switch>
-                <Route exact path='/' component={ListMovies} />
-                <Route exact path='/:page' component={ListMovies} />
+                <Route exact path='/movies' component={ListMovies} />
+                <Route exact path='/movies/:page' component={ListMovies} />
                 <Route exact path='/movie/:id' component={DetailMovie} />
                 <Route path='/sagas' component={Sagas} />
                 <Route path='/profile' render={() => <Profile session={session} />} />
                 <Route path='/signup' render={() => <SignUp refetch={refetch} />} />
                 <Route path='/signin' render={() => <SignIn refetch={refetch} />} />
-                <Redirect to='/' />
+                <Redirect to='/movies'/>
             </Switch>
         </BrowserRouter>
     )
