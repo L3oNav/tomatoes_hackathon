@@ -1,5 +1,8 @@
 import styled from 'styled-components'
 
+export const Container = styled.div`
+    padding: 50px;
+`
 
 export const ContainerImgTitle = styled.div`
     flex-direction: column;

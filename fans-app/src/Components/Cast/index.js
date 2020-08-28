@@ -12,8 +12,8 @@ const Cast = ({ cast }) => {
   if (cast) {
     return (
       <ListCast>
-        {cast[0]
-          ? cast[0].slice(0, 10).map((actor) =>
+        {cast
+          ? cast.slice(0, 10).map((actor) =>
               actor.profile_path ? (
                 <CastContent key={actor.id}>
                   <CastProfile src={URL_IMG + "w185" + actor.profile_path} />
@@ -28,7 +28,7 @@ const Cast = ({ cast }) => {
       </ListCast>
     );
   } else {
-    return <div />;
+    return 'Loading...';
   }
 };
 

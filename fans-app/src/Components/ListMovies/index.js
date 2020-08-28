@@ -3,7 +3,7 @@ import { moviesDiscoverAction } from '../../Redux/Actions/movies';
 import { Poster } from '../Poster/index';
 import { connect } from 'react-redux';
 import styled from 'styled-components';
-import NavigationButtons from '../NavigationButtons/index'
+import NavigationButtons from '../NavigationButtons/index';
 
 const ContainerMovies = styled.div`
 	padding-top: 150px;
@@ -50,16 +50,12 @@ class ListMovies extends Component {
 	render() {
 		if (this.props.data.movies.length) {
 			return (
-				<div>
-					<ContainerMovies>
-						{this.moviesHandler()}
-					</ContainerMovies>
+				<ContainerMovies>
+					{this.moviesHandler()}
 					<div>
-						<div>
-							<NavigationButtons page={this.state.page} />
-						</div>
+						<NavigationButtons page={this.state.page} />
 					</div>
-				</div>
+				</ContainerMovies>
 			);
 		} else {
 			return 'Loading...';

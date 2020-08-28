@@ -8,6 +8,7 @@ import Profile from '../Containers/Profile'
 import SignIn from '../Containers/SignIn'
 import SignUp from '../Containers/SignUp'
 import withSession from './withSession'
+import DetailMovie from '../Components/DetailMovie'
 // import MovieDetailsContainer from '../Containers/MovieDetailsContainer/index'
 
 function Root({ refetch, session }) {
@@ -17,7 +18,7 @@ function Root({ refetch, session }) {
             <Switch>
                 <Route exact path='/' component={ListMovies} />
                 <Route exact path='/:page' component={ListMovies} />
-                {/* <Route exact path='/movie/:id' component={MovieDetailsContainer} /> */}
+                <Route exact path='/movie/:id' component={DetailMovie} />
                 <Route path='/sagas' component={Sagas} />
                 <Route path='/profile' render={() => <Profile session={session} />} />
                 <Route path='/signup' render={() => <SignUp refetch={refetch} />} />

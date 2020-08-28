@@ -6,11 +6,13 @@ import thunk from "redux-thunk";
 import { moviesReducer } from "./Reducers/movies";
 import { movieReducer } from "./Reducers/movie";
 import { castReducer } from "./Reducers/cast";
+import { videoReducer } from "./Reducers/video"
 
 const reducers = combineReducers({
   movies: moviesReducer,
   movie: movieReducer,
   cast: castReducer,
+  video: videoReducer
 });
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;

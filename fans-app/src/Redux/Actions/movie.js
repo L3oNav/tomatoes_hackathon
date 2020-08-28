@@ -1,4 +1,4 @@
-import { URL_DETAIL, API_KEYI } from "../const";
+import { URL_DETAIL, API_KEY } from "../const";
 
 export const movieGetAction = (id) => async (dispatch) => {
   dispatch({ type: "movieGetLoading" });

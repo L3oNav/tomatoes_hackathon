@@ -1,4 +1,4 @@
-import { API_KEY, URL_DETAIL } from "../const";
+import { API_KEY, URL_DETAIL, URL_CAST } from "../const";
 
 export const movieCastAction = (id) => (dispatch) => {
   dispatch({ type: "castMovieLoading" });

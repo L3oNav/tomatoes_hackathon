@@ -6,5 +6,6 @@ export const Article = styled(Link)`
     color: #e43f5a;
     padding-top: 20px;
     padding-bottom: 20px;
+    padding-left: 15px;
     text-align: center;
 `;
