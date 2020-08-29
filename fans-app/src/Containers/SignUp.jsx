@@ -116,7 +116,7 @@ const SignUp = ({ history, refetch }) => {
     }
     if (!isPassword(password) || !isPassword(passwordConfirm)) {
       setErrorMessage(
-        'Contraseña no válida: al menos ocho carácteres, al menos una letra, al menos un número y un carácter especial'
+        'Contraseña no válida: al menos ocho carácteres, al menos una letra, al menos un número'
       )
       setOpen(true)
       throw new Error(
