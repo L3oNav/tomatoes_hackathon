@@ -5,7 +5,7 @@ import { moviesVideosAction } from '../../Redux/Actions/video'
 import P5Wrapper from 'react-p5-wrapper'
 import objectDetectionSketch from '../ObjectDetectionSketch'
 import styled from 'styled-components'
-import Button from '@material-ui/core/Button'
+// import Button from '@material-ui/core/Button'
 
 import { Mutation } from 'react-apollo'
 import { ADD_COMMENTARY } from '../../queries'
@@ -33,10 +33,10 @@ class Video extends Component {
   }
 
   render() {
-    const _handleOnClick = (addEmotion) => {
-      console.log('this.state.actualEmotion :>> ', this.state.actualEmotion)
-      addEmotion()
-    }
+    // const _handleOnClick = (addEmotion) => {
+    //   console.log('this.state.actualEmotion :>> ', this.state.actualEmotion)
+    //   addEmotion()
+    // }
 
     const onTrigger = (drawing) => {
       console.log('expressions:>> ', drawing.expressions)
