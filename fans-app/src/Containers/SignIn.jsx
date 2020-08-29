@@ -1,13 +1,13 @@
 import Button from '@material-ui/core/Button'
 import CircularProgress from '@material-ui/core/CircularProgress'
 import { makeStyles, styled as mStyled } from '@material-ui/core/styles'
+import Snackbar from '@material-ui/core/Snackbar'
+import MuiAlert from '@material-ui/lab/Alert'
 import React, { useState } from 'react'
 import { useMutation } from 'react-apollo'
 import { Link, withRouter } from 'react-router-dom'
 import styled from 'styled-components'
-// import googleIcon from '../assets/static/google-icon.png'
 import CustomInput from '../Components/CustomInput'
-import ErrorItem from '../Components/ErrorItem'
 import Footer from '../Components/Footer'
 import { SIGNIN_USER } from '../queries'
 
@@ -17,6 +17,21 @@ const SignIn = ({ history, refetch }) => {
   const [username, setUsername] = useState('')
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
+  const [errorMessage, setErrorMessage] = useState('')
+
+  function Alert(props) {
+    return <MuiAlert elevation={6} variant='filled' {...props} />
+  }
+
+  const [open, setOpen] = React.useState(false)
+
+  const handleClose = (event, reason) => {
+    if (reason === 'clickaway') {
+      return
+    }
+
+    setOpen(false)
+  }
 
   const clearState = () => {
     setUsername('')
@@ -36,15 +51,20 @@ const SignIn = ({ history, refetch }) => {
   const _handleSubmit = (event, signInUser) => {
     event.preventDefault()
 
-    signInUser().then(async ({ data: { signInUser } }) => {
-      localStorage.setItem('token', signInUser.token)
-      await refetch()
-      clearState()
-      history.push('/')
-    })
+    signInUser()
+      .then(async ({ data: { signInUser } }) => {
+        localStorage.setItem('token', signInUser.token)
+        await refetch()
+        clearState()
+        history.push('/')
+      })
+      .catch(() => {
+        setErrorMessage('El Usuario no existe o la contraseña es incorrecta ')
+        setOpen(true)
+      })
   }
 
-  const [signIn, { loading, error }] = useMutation(SIGNIN_USER, {
+  const [signIn, { loading }] = useMutation(SIGNIN_USER, {
     variables: { username, email, password },
   })
 
@@ -74,23 +94,12 @@ const SignIn = ({ history, refetch }) => {
               onChange={_handleInputChange}
             />
             <LogButton type='submit'>Entrar</LogButton>
-            {error && (
-              <>
-                <ErrorItem error={error} />
-              </>
-            )}
-            {/* <Link to='/'>
-                            <ForgotButton>¿Olvidaste tu contraseña?(TODO)</ForgotButton>
-                        </Link> */}
+            <Snackbar open={open} autoHideDuration={2000} onClose={handleClose}>
+              <Alert onClose={handleClose} severity='error'>
+                {errorMessage}
+              </Alert>
+            </Snackbar>
           </Form>
-          <SocialMediaContainer>
-            <GoogleImageContainer>
-              {/* <Image src={googleIcon} alt='Inicia sesión con Google' /> */}
-              {/* <Link to='/'>
-                                <TitleGoogleButton>Inicia sesión con Google(TODO)</TitleGoogleButton>
-                            </Link> */}
-            </GoogleImageContainer>
-          </SocialMediaContainer>
           <RegistesContainer>
             <p>¿Quieres crear una cuenta?:</p>
             <Link to='/signup'>
@@ -103,15 +112,6 @@ const SignIn = ({ history, refetch }) => {
     </>
   )
 }
-
-// const ForgotButton = mStyled(Button)({
-//     border: 0,
-//     borderRadius: 3,
-//     color: 'white',
-//     height: 48,
-//     padding: '0 30px',
-//     textTransform: 'capitalize',
-// })
 
 const Title = styled.h2`
   color: black;
@@ -163,15 +163,6 @@ const Form = styled.form`
   align-items: center;
 `
 
-// const TitleGoogleButton = mStyled(Button)({
-//     border: 0,
-//     borderRadius: 3,
-//     color: 'white',
-//     height: 48,
-//     padding: '0 30px',
-//     textTransform: 'capitalize',
-// })
-
 const TitleRegisterButton = mStyled(Button)({
   border: 0,
   borderRadius: 3,
@@ -182,29 +173,10 @@ const TitleRegisterButton = mStyled(Button)({
   textTransform: 'capitalize',
 })
 
-const SocialMediaContainer = styled.section`
-  align-items: center;
-  display: flex;
-  font-size: 14px;
-  margin-bottom: 20px;
-`
-
-// const Image = styled.img`
-//     margin-right: 10px;
-//     width: 30px;
-// `
-
 const RegistesContainer = styled.div`
   display: flex;
   font-size: 14px;
   align-items: center;
-`
-
-const GoogleImageContainer = styled.div`
-  align-items: center;
-  display: flex;
-  font-size: 14px;
-  margin-bottom: 10px;
 `
 
 const useStyles = makeStyles(() => ({
