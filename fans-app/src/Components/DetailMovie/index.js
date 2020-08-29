@@ -21,6 +21,7 @@ class DetailMovie extends Component {
     super(props)
     this.state = {
       id: this.props.match.params.id,
+      movieName: '',
       text: '',
     }
     this.showMovie = this.showMovie.bind(this)
@@ -137,6 +138,7 @@ class DetailMovie extends Component {
                             mutation={ADD_COMMENTARY}
                             variables={{
                               movie_id: this.state.id,
+                              movie_name: this.props.data.movie.original_title,
                               user: data.getCurrentUser.username,
                               text: this.state.text,
                             }}

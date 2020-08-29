@@ -58,6 +58,9 @@ const Profile = ({ session }) => {
   const [username, setUsername] = useState('')
   const [email, setEmail] = useState('')
   const [fav, setFav] = useState('')
+  const role = session.getCurrentUser.role
+
+  console.log('role :>> ', role)
 
   const handleChange = (event, newValue) => {
     setValue(newValue)
@@ -95,8 +98,19 @@ const Profile = ({ session }) => {
     },
   })
 
+  console.log('{ _id: id, name, username, email, fav, role } :>> ', {
+    _id: id,
+    name,
+    username,
+    email,
+    fav,
+    role,
+  })
   const [updateProfile, { loading: mutationLoading }] = useMutation(UPDATE_USER, {
-    variables: { _id: id, name, username, email, fav },
+    variables: { _id: id, name, username, email, fav, role },
+    onCompleted: () => {
+      window.location.reload()
+    },
   })
 
   if (loading || mutationLoading)

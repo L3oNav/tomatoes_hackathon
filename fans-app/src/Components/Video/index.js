@@ -67,11 +67,10 @@ class Video extends Component {
             }}
           >
             {(addEmotion, attrs = {}) => {
-              return (
-                <Button variant='contained' onClick={() => _handleOnClick(addEmotion)}>
-                  Guardar Emoción
-                </Button>
-              )
+              return null
+              // <Button variant='contained' onClick={() => _handleOnClick(addEmotion)}>
+              //   Guardar Emoción
+              // </Button>
             }}
           </Mutation>
         </Container>
