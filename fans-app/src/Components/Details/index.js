@@ -15,8 +15,6 @@ import CommentaryField from '../CommentaryField'
 import { IMG_SIZE_LARGE, URL_IMG } from '../const'
 import CustomTextArea from '../CustomTextArea'
 import { Column, Img, Row, Text, Title } from './styles'
-import P5Wrapper from 'react-p5-wrapper'
-import objectDetectionSketch from '../ObjectDetectionSketch'
 
 const DataMovies = ({ movie, cast, session }) => {
   const classes = useStyles()

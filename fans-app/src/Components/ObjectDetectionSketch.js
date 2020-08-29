@@ -5,7 +5,7 @@ import * as faceapi from 'face-api.js'
 
 const MODEL_URL = '/models'
 
-export default function sketch(p) {
+export default function sketch({ p, onTrigger }) {
   let capture = null
   let cocossdModel = null
 
@@ -32,7 +32,7 @@ export default function sketch(p) {
           minWidth: 640,
           minHeight: 480,
         },
-        optional: [{ maxFrameRate: 40 }],
+        optional: [{ maxFrameRate: 10 }],
       },
       audio: false,
     }
@@ -93,6 +93,8 @@ export default function sketch(p) {
       if (drawing) {
         p.textSize(15)
         p.strokeWeight(1)
+
+        onTrigger(drawing)
 
         const textX = drawing.detection.box._x + drawing.detection.box._width
         const textY = drawing.detection.box._y + drawing.detection.box._height
