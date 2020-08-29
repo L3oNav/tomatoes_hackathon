@@ -53,9 +53,6 @@ const HeaderAuth = ({ session }) => {
               <NavLink to='/profile'>
                 <NavButtonsP>Perfil</NavButtonsP>
               </NavLink>
-              <NavLink to='/sagas'>
-                <NavButtonsP>Sagas</NavButtonsP>
-              </NavLink>
               <LogOut />
             </div>
           </div>
